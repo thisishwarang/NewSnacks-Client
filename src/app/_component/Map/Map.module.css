@@ -1,0 +1,65 @@
+.mapdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mapdiv svg {
+  fill: #f3f3f3;
+}
+.northAmericaSvg {
+  width: 28.75rem;
+  position: absolute;
+  left: 13.68rem;
+  top: 1rem;
+}
+.northAmericaSvg g:hover {
+  fill: #ffcc60;
+}
+.euSvg {
+  width: 11rem;
+  position: absolute;
+  left: 40.375rem;
+  top: 2.34rem;
+}
+.euSvg g:hover {
+  fill: #ffcc60;
+}
+.asiaSvg {
+  width: 25.13rem;
+  position: absolute;
+  left: 48rem;
+  top: 1.56rem;
+}
+.asiaSvg g:hover {
+  fill: #ffcc60;
+}
+.southAmericaSvg {
+  width: 8.76rem;
+  position: absolute;
+  left: 28.75rem;
+  top: 23rem;
+}
+.southAmericaSvg g:hover {
+  fill: #ffcc60;
+}
+.africaSvg {
+  width: 12.85rem;
+  position: absolute;
+  left: 40.875rem;
+  top: 17.71rem;
+}
+.africaSvg g:hover {
+  fill: #ffcc60;
+}
+.oceaniaSvg {
+  width: 12.35rem;
+  position: absolute;
+  left: 65.5rem;
+  top: 25.68rem;
+}
+.oceaniaSvg g:hover {
+  fill: #ffcc60;
+}
+.cls2 {
+  fill: #7e7e7e;
+}

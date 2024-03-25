@@ -1,0 +1,97 @@
+.navbarVisible {
+  position: fixed;
+  width: 100dvw;
+  height: 4.375rem;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  top: 0;
+  transition: top ease 0.8s;
+}
+.navbarHidden {
+  position: fixed;
+  width: 100dvw;
+  height: 4rem;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  top: -100px;
+  transition: top ease 0.8s;
+}
+.logo {
+  color: #000;
+  font-family: Lemon;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -1.65px;
+  display: flex;
+  margin-left: 3rem;
+}
+.logo img {
+  width: 13rem;
+}
+.scrollButtons {
+  margin-left: 1rem;
+  margin-right: 6rem;
+  display: flex;
+  justify-content: space-between;
+  width: 45.25rem;
+}
+.scrollButtons button {
+  /* margin: 0 1.5rem; */
+  font-weight: 700;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2.5rem;
+}
+.scrollButton {
+  width: 9rem;
+  height: 2.93rem;
+  border-radius: 90px;
+  /* border: 1px solid #000; */
+  background: #f4f4f4;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.scrollButton:hover {
+  background-color: #ffcc60;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  margin-right: 2.6rem;
+}
+.loginButton {
+  color: #000;
+  text-align: right;
+  font-family: "Noto Sans KR";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2.5rem;
+  margin-right: 1.875rem;
+  margin-top: 0.15rem;
+  cursor: pointer;
+}
+
+.hamburgerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 90px;
+  width: 2.7rem;
+  height: 2.7rem;
+}
+.hamburgerButton:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}

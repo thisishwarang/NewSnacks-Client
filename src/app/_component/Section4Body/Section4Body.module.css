@@ -1,0 +1,47 @@
+.container {
+  width: 100dvw;
+  height: 82dvh;
+  display: flex;
+}
+.section4Left {
+  width: 60%;
+  background-image: url("/종이-팝콘토론1.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleDate {
+  margin-top: 8.375rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.debateTitle {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.prosAndConsSection {
+  margin-top: 5rem;
+  width: 70%;
+  height: 6rem;
+}
+.debateButton {
+  margin-top: 3.25rem;
+}
+.section4Right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffcc60;
+}
+.section4RightSpan {
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 7.5rem;
+}
+.postSection {
+  width: 62%;
+  margin-top: 2rem;
+}

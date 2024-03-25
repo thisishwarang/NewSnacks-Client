@@ -1,0 +1,71 @@
+.container {
+  width: 100dvw;
+  height: 477dvh;
+}
+.section {
+  width: 100dvw;
+  height: 100dvh;
+}
+.section1Wrapper img {
+  width: 100dvw;
+  height: 100dvh;
+}
+.personalTasteSection {
+  width: 100dvw;
+  height: 77dvh;
+  background-image: url("/종이-지도.jpg");
+}
+.section2Wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.sectionHeader {
+  width: 100dvw;
+  height: 18dvh;
+  display: flex;
+  align-items: center;
+}
+.section3Wrapper {
+  display: flex;
+  flex-direction: column;
+  background-image: url("/종이-지도.jpg");
+}
+.section3span {
+  height: 2dvh;
+  border-bottom: 1px solid #ffcc60;
+  padding-bottom: 0.3rem;
+  overflow: hidden;
+}
+.scrollText {
+  white-space: nowrap;
+  animation: scroll-right 50s linear infinite;
+}
+@keyframes scroll-right {
+  from {
+    transform: translateX(-180%); /* 시작 지점: 왼쪽 끝에서 시작 */
+  }
+  to {
+    transform: translateX(100%); /* 종료 지점: 오른쪽 끝까지 이동 */
+  }
+}
+.section3Body {
+  width: 100dvw;
+  height: 80dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* .emptySpace {
+  position: relative;
+  width: 100dvw;
+  height: 39dvh;
+  overflow: hidden;
+}
+.policeline {
+  position: absolute;
+  top: 8rem;
+  width: 100%;
+  height: auto;
+} */

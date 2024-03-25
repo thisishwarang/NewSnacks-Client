@@ -1,0 +1,9 @@
+.voteCount {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.voteCount span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}

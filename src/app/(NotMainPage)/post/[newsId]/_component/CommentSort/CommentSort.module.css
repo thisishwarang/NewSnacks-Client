@@ -1,0 +1,15 @@
+.sortingBox {
+  border-bottom: 1px solid #4b4b4b;
+  width: 100%;
+  height: 4rem;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+}
+.sortingBox button:hover {
+  font-weight: bold;
+}
+.selectedBtn {
+  font-weight: bold;
+}

@@ -1,0 +1,42 @@
+.sortAndSearch {
+  width: 77dvw;
+  display: flex;
+  justify-content: space-between;
+}
+.sortButtons {
+  display: flex;
+  align-items: center;
+}
+.sortButtons button {
+  font-size: 1rem;
+}
+.sortButtons button:hover {
+  font-weight: bold;
+}
+.selectedBtn {
+  font-weight: bold;
+}
+
+.searchBox {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid black;
+}
+.searchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.searchButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchButtonImg {
+  width: 1.5rem;
+  height: 1.5rem;
+}

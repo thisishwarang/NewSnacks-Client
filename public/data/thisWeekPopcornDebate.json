@@ -1,0 +1,18 @@
+{
+  "code": 200,
+  "message": "OK",
+  "data": {
+    "id": 1,
+    "titleDate": "2024년 2월 4주 주제",
+    "debateTitle": "e스포츠 올림픽 종목 채택",
+    "pro": "11",
+    "con": "25",
+    "article": {
+      "id": 1,
+      "title": "이스라엘-가자 전쟁: 레바논 국경에서 긴장 고조",
+      "imageUrl": "/전쟁사진.png",
+      "createdAt": "2024/01/04",
+      "category": "art"
+    }
+  }
+}

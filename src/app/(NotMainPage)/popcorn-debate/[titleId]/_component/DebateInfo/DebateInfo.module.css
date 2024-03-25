@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  width: 100%;
+}
+.section4Left {
+  width: 60%;
+  background-image: url("/종이-팝콘토론1.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8.375rem 0 5rem 0;
+}
+.titleDate {
+  /* margin-top: 8.375rem; */
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.debateTitle {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.debateParagraph {
+  margin-top: 4.3rem;
+  width: 74%;
+}
+.debateParagraph p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 2rem;
+}
+.section4Right {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffcc60;
+}
+.section4RightSpan {
+  margin-top: 7.5rem;
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.postSection {
+  width: 62%;
+  margin-top: 2rem;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; */
+}

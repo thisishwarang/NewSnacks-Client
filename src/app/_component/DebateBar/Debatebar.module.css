@@ -1,0 +1,10 @@
+.forVotesSpan {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+.againstVotesSpan {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-right: 1rem;
+}

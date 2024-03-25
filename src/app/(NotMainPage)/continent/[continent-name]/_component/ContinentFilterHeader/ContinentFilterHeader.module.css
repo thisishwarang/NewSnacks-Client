@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+.filters {
+  display: flex;
+}
+.filter {
+  font-size: 1.2rem;
+  margin: 2rem;
+  font-weight: 500;
+  background-color: transparent;
+  transition: all ease 0.3s;
+}
+.filter:hover,
+.filter.selected {
+  opacity: 1;
+  font-size: 1.7rem;
+}

@@ -1,0 +1,110 @@
+.container {
+  width: 100dvw;
+  height: 100%;
+  display: flex;
+}
+.leftSection {
+  width: 35%;
+  height: 100%;
+  position: fixed;
+  background-color: #ffcc60;
+}
+.info {
+  margin-top: 12rem;
+  margin-left: 5rem;
+  display: flex;
+}
+.category {
+  font-weight: 300;
+  font-size: 1.56rem;
+  line-height: 1.125rem;
+}
+.date {
+  margin-left: 2rem;
+  font-weight: 300;
+  font-size: 1.56rem;
+  line-height: 1.25rem;
+}
+.title {
+  margin-top: 4rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 3.125rem;
+  margin-left: 5rem;
+  max-width: 70%;
+  /* width: 70%; */
+}
+.likeAndShare {
+  margin-left: 5rem;
+  margin-top: 16rem;
+}
+.likeDiv {
+  display: flex;
+  align-items: center;
+}
+.likeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.likeButton img {
+  width: 1.5rem;
+  height: 1.4rem;
+}
+.likeCount {
+  margin-left: 0.3rem;
+}
+.shareButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.shareButton img {
+  width: 1.5rem;
+  height: 1.4rem;
+}
+.rightSection {
+  width: 65%;
+  height: 100%;
+  margin-left: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11.8rem;
+}
+.imgSection img {
+  width: 80%;
+}
+.summarySection {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  background-image: url("/세줄요약-배경.png");
+  background-size: cover;
+}
+.mainText {
+  width: 80%;
+  margin: 6rem 0 4rem 0;
+}
+.mainText p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 2rem;
+}
+.articleSection {
+  width: 80%;
+  margin-top: 2.5rem;
+}
+.article {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 2rem;
+}

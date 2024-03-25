@@ -1,0 +1,36 @@
+.container {
+  position: absolute;
+  top: 4rem;
+  right: 2.8rem;
+  z-index: 10;
+  width: 16rem;
+  height: 30rem;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.navMenu {
+  width: inherit;
+  height: 19rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoDiv {
+  width: inherit;
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffcc60;
+}
+.img {
+  width: 13rem;
+  margin: 0.5rem;
+}
+.text {
+  font-size: 1rem;
+  margin: 0.5rem;
+}

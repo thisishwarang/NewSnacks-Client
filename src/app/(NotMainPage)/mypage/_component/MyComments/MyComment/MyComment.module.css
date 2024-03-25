@@ -1,0 +1,22 @@
+.container {
+  width: 27%;
+  height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  background-color: #f5f5f5;
+  gap: 2rem;
+}
+
+.comment {
+  width: 70%;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.2rem;
+}
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+}

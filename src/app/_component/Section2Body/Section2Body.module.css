@@ -1,0 +1,13 @@
+.section2Body {
+  display: flex;
+  width: 100dvw;
+  height: 82dvh;
+}
+.leftSection {
+  width: 55dvw;
+  background-color: #f4f4f4;
+}
+.rightSection {
+  width: 45dvw;
+  background-color: #ffcc60;
+}

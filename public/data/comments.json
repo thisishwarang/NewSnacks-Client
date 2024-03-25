@@ -1,0 +1,51 @@
+{
+  "status": 200,
+  "message": "댓글 조회 성공",
+  "data": [
+    {
+      "id": 6,
+      "writerName": "박재연",
+      "content": "안돼안도ㅓㅐ안돼",
+      "createdAt": [2024, 3, 14, 1, 43, 40, 262699000],
+      "likeCount": 0,
+      "isLikedByMe": false,
+      "isMyComment": false
+    },
+    {
+      "id": 7,
+      "writerName": "박재asdf",
+      "content": "안돼안도ㅓasdfasdfㅐ안돼",
+      "createdAt": [2024, 3, 14, 1, 43, 40, 262699000],
+      "likeCount": 0,
+      "isLikedByMe": false,
+      "isMyComment": false
+    },
+    {
+      "id": 8,
+      "writerName": "박재zdfdfz연",
+      "content": "안돼안도asfefaefaefaesfaㅓㅐ안돼",
+      "createdAt": [2024, 3, 14, 1, 43, 40, 262699000],
+      "likeCount": 0,
+      "isLikedByMe": false,
+      "isMyComment": false
+    },
+    {
+      "id": 9,
+      "writerName": "hwarang",
+      "content": "안돼안도ㅓafasㅐ안zzzzzzz돼",
+      "createdAt": [2024, 3, 14, 1, 43, 40, 262699000],
+      "likeCount": 0,
+      "isLikedByMe": false,
+      "isMyComment": false
+    },
+    {
+      "id": 10,
+      "writerName": "박재연dusdusdus",
+      "content": "asfejaeja돼안도ㅓㅐ안돼",
+      "createdAt": [2024, 3, 14, 1, 43, 40, 262699000],
+      "likeCount": 0,
+      "isLikedByMe": false,
+      "isMyComment": false
+    }
+  ]
+}

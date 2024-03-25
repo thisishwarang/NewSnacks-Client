@@ -1,0 +1,69 @@
+{
+  "code": 200,
+  "message": "OK",
+  "data": [
+    {
+      "id": 1,
+      "hashtag": "홍콩",
+      "imgUrl": "/pImg1.png",
+      "alt": "img1",
+      "text": "홍콩의 새 안전법, 수십 년이 걸린 이유"
+    },
+    {
+      "id": 2,
+      "hashtag": "기후위기",
+      "imgUrl": "/pImg2.png",
+      "alt": "img2",
+      "text": "지구의 온도를 내릴 수 있는 최선의 방법"
+    },
+    {
+      "id": 3,
+      "hashtag": "아동",
+      "imgUrl": "/pImg3.png",
+      "alt": "img3",
+      "text": "인터넷은 황무지, 어린이를 위한 더 좋은 공간이 필요하다"
+    },
+    {
+      "id": 4,
+      "hashtag": "홍콩",
+      "imgUrl": "/pImg1.png",
+      "alt": "img1",
+      "text": "홍콩의 새 안전법, 수십 년이 걸린 이유"
+    },
+    {
+      "id": 5,
+      "hashtag": "기후위기",
+      "imgUrl": "/pImg2.png",
+      "alt": "img2",
+      "text": "지구의 온도를 내릴 수 있는 최선의 방법"
+    },
+    {
+      "id": 6,
+      "hashtag": "아동",
+      "imgUrl": "/pImg3.png",
+      "alt": "img3",
+      "text": "인터넷은 황무지, 어린이를 위한 더 좋은 공간이 필요하다"
+    },
+    {
+      "id": 7,
+      "hashtag": "홍콩",
+      "imgUrl": "/pImg1.png",
+      "alt": "img1",
+      "text": "홍콩의 새 안전법, 수십 년이 걸린 이유"
+    },
+    {
+      "id": 8,
+      "hashtag": "기후위기",
+      "imgUrl": "/pImg2.png",
+      "alt": "img2",
+      "text": "지구의 온도를 내릴 수 있는 최선의 방법"
+    },
+    {
+      "id": 9,
+      "hashtag": "아동",
+      "imgUrl": "/pImg3.png",
+      "alt": "img3",
+      "text": "인터넷은 황무지, 어린이를 위한 더 좋은 공간이 필요하다"
+    }
+  ]
+}

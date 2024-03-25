@@ -1,0 +1,34 @@
+.container {
+  width: 100dvw;
+  height: 34rem;
+  margin-top: 10rem;
+}
+.tasteTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.tasteTitle span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffcc60;
+  width: 13.18rem;
+  height: 3rem;
+}
+.tastePostsSection {
+  display: flex;
+  margin-top: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+.carousel {
+  display: flex;
+  overflow: auto;
+  width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  gap: 2rem;
+}
