@@ -35,7 +35,7 @@ export default function KakaoLoginModal() {
       console.log(response);
       localStorage.setItem("accessToken", process.env.NEXT_PUBLIC_ACCESSTOKEN);
       //나중에 response값에서 토큰  저장하면 됨.
-      router.push("/");
+      router.back();
     } catch (error) {
       console.log("error", error);
     }

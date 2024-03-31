@@ -73,6 +73,11 @@ export default function CommentContainer({ debateInfo }) {
       getDebateComments();
       setNowComment("");
     } catch (error) {
+      if (error.response.data.status === 409) {
+        alert(
+          "이미 댓글을 작성하셨습니다!\n투표 댓글은 한번만 등록 가능해요ㅠ"
+        );
+      }
       console.log("댓글 등록 에러", error);
     }
   };
