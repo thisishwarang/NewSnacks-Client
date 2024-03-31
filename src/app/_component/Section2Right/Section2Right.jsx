@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import styles from "./Section2Right.module.css";
 import { useState, useEffect } from "react";
 
@@ -15,10 +16,23 @@ export default function Section2Right(props) {
     }
   }, [thisWeekNews]);
   const hoveredNews = news.find((value) => value.id === hoveredId);
-
+  if (!hoveredNews) {
+    return <div></div>;
+  }
   return (
     <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
-      <img className={styles.img} src={"/전쟁사진.png"} alt="image" />
+      <div className={styles.imgContainer}>
+        {hoveredNews.imageUrl ? (
+          <Image
+            className={styles.img}
+            src={`https://${hoveredNews.imageUrl}`}
+            alt="image"
+            fill
+          />
+        ) : (
+          <div></div>
+        )}
+      </div>
       <div className={styles.textSection}>
         {hoveredNews ? hoveredNews.summary : null}
       </div>

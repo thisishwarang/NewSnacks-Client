@@ -18,7 +18,7 @@ export default function Section4Body() {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
             },
           }
         );
@@ -59,7 +59,7 @@ export default function Section4Body() {
   return (
     <div className={styles.container}>
       <div className={styles.section4Left}>
-        <div className={styles.titleDate}>2024년 2월 4주 주제</div>
+        <div className={styles.titleDate}>2024년 3월 5주 주제</div>
         <div className={styles.debateTitle}>{thisWeekPopcornDebate.title}</div>
         <section className={styles.prosAndConsSection}>
           <DebatebarSection

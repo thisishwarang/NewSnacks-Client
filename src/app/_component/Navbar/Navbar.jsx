@@ -9,6 +9,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
   const hamburgerRef = useRef(null);
+
   const [prevScrollpos, setPrevScrollpos] = useState(
     typeof window !== "undefined" ? window.scrollY : 0
   );
@@ -16,6 +17,14 @@ export default function Navbar() {
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  const [isLogined, setIsLogined] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem("accessToken")) {
+      setIsLogined(true);
+    } else {
+      setIsLogined(false);
+    }
+  }, [isLogined, setIsLogined]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -49,13 +58,17 @@ export default function Navbar() {
       };
     }
   }, [prevScrollpos]);
-  const scrollToSection = (ref) => {
-    if (ref && ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const scrollToSection = (ref) => {
+  //   if (ref && ref.current) {
+  //     ref.current.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
   const handleLoginClick = () => {
     window.location.href = KAKAO_AUTH_URL;
+  };
+  const handleLogoutClick = () => {
+    localStorage.removeItem("accessToken");
+    setIsLogined(false);
   };
 
   return (
@@ -70,9 +83,16 @@ export default function Navbar() {
         <div className={styles.span}>간식같이 간편한 해외 뉴스</div>
       </div>
       <div className={styles.navRight}>
-        <button className={styles.loginButton} onClick={handleLoginClick}>
-          로그인
-        </button>
+        {isLogined ? (
+          <button className={styles.loginButton} onClick={handleLogoutClick}>
+            로그아웃
+          </button>
+        ) : (
+          <button className={styles.loginButton} onClick={handleLoginClick}>
+            로그인
+          </button>
+        )}
+
         <button
           className={styles.hamburgerButton}
           id="hamburger-button"

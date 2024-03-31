@@ -23,7 +23,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
           },
         }
       );
@@ -68,7 +68,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
           },
         }
       );
@@ -95,7 +95,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
           },
         }
       );
@@ -117,7 +117,7 @@ export default function CommentSection({ articleId }) {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+              Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
             },
           }
         );
@@ -143,7 +143,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
           },
         }
       );
@@ -161,7 +161,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
           },
         }
       );

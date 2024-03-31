@@ -11,10 +11,14 @@
 .content {
   transition: all ease-in-out 1s;
 }
+.imgContainer {
+  position: relative;
+  width: 70%;
+}
 .img {
   margin-top: 2.5rem;
-  width: 33rem;
-  height: auto;
+  position: relative !important;
+  height: initial !important;
 }
 .textSection {
   width: 33rem;

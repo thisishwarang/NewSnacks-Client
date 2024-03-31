@@ -9,6 +9,11 @@
   display: flex;
   justify-content: space-between;
 }
+.title {
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
+  font-size: 3.125rem;
+  font-weight: 700;
+}
 .popcorn {
   width: 5.1rem;
   height: 4.25rem;

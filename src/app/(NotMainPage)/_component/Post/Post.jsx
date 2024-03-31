@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import styles from "./Post.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 const categoryMappings = {
   ART: "예술",
@@ -25,16 +26,18 @@ export default function Post({ article }) {
       }}
     >
       <div className={styles.imageSection}>
-        <img
+        <Image
           className={styles.img}
-          // src={`${article.imageUrl}`}
-          src={"/전쟁사진.png"}
+          src={`https://${article.imageUrl}`}
           alt="articleImage"
+          fill
         />
       </div>
       <div className={styles.titleSection}>{article.title}</div>
       <div className={styles.informationSection}>
-        <div className={styles.date}>{article.createdAt}</div>
+        <div className={styles.date}>
+          {article.createdAt ? article.createdAt.split("T")[0] : ""}
+        </div>
         <div className={styles.category}>
           {categoryMappings[article.sectionCategory]}
         </div>

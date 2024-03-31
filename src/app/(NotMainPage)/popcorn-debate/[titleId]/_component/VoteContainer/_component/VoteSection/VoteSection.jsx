@@ -1,14 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./VoteSection.module.css";
 import axios from "axios";
 
-export default function VoteSection({ debateInfo }) {
+export default function VoteSection({ debateInfo, getDebateDetailPage }) {
   const [draggedOver, setDraggedOver] = useState(null);
   const [voteResult, setVoteResult] = useState(null);
 
   const postVoteResult = async () => {
-    console.log("voteResult", voteResult);
     try {
       const response = await axios.post(
         `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/votes`,
@@ -18,11 +17,12 @@ export default function VoteSection({ debateInfo }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
           },
         }
       );
       console.log(response);
+      getDebateDetailPage();
     } catch (error) {
       console.log("투표에러", error);
     }
@@ -45,12 +45,7 @@ export default function VoteSection({ debateInfo }) {
     }
     setDraggedOver(null);
   };
-  console.log(voteResult);
-  // useEffect(() => {
-  //   if (voteResult !== null || voteResult !== undefined) {
-  //     postVoteResult();
-  //   }
-  // }, [voteResult]);
+
   return (
     <div>
       <div className={styles.voteContainer}>

@@ -6,19 +6,22 @@
   margin-top: 5rem;
 }
 .posts {
-  width: 80dvw;
+  width: 75dvw;
   display: flex;
   justify-content: center;
+  margin-top: 1.7rem;
   /*
   flex-wrap: wrap; */
 }
 .posts ul {
   display: block;
+  width: 100%;
 }
 .posts ul li {
   float: left;
   width: 33.3%;
   list-style: none;
+  margin-bottom: 2rem;
 }
 .posts ul li:nth-child(3n + 1) {
   clear: both;

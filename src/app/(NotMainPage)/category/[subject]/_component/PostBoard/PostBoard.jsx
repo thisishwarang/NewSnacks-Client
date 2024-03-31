@@ -7,7 +7,7 @@ import SortAndSearch from "../SortAndSearch/SortAndSearch";
 import axios from "axios";
 
 const filterMappings = {
-  전체: "ALL",
+  전체: "",
   예술: "ART",
   환경: "ENVIRONMENT",
   경제: "ECONOMY",
@@ -28,9 +28,9 @@ export default function PostBoard({ filter }) {
   async function fetchArticles(page) {
     try {
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&category=${filterMappings[filter]}&page=${page}`
+        `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&sectionCategory=${filterMappings[filter]}&page=${page}`
       );
-      console.log(response);
+      console.log(response.data.data);
       return response.data.data;
     } catch (error) {
       console.error("데이터를 가져오는 중 오류가 발생했습니다:", error);

@@ -182,3 +182,12 @@ a {
     font-size: 22px;
   }
 }
+body {
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
+}
+
+@font-face {
+  font-family: "YEONGJUPunggiGinseng";
+  font-weight: 200;
+  src: url("/fonts/YEONGJUPunggiGinseng.otf") format("truetype");
+}

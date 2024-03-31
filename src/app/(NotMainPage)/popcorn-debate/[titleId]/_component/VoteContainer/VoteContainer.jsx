@@ -1,16 +1,20 @@
+"use client";
 import DebatebarSection from "@/app/_component/DebateBarSection/DebatebarSection";
 import styles from "./VoteContainer.module.css";
 import VoteSection from "./_component/VoteSection/VoteSection";
+import { useState } from "react";
 
-export default function VoteContainer({ debateInfo }) {
-  console.log(debateInfo);
+export default function VoteContainer({ debateInfo, getDebateDetailPage }) {
   return (
     <div className={styles.container}>
       <div className={styles.explain}>
         <span>팝콘을 드래그하여 투표하세요</span>
         <span>(기회는 한번 뿐!)</span>
       </div>
-      <VoteSection debateInfo={debateInfo} />
+      <VoteSection
+        debateInfo={debateInfo}
+        getDebateDetailPage={getDebateDetailPage}
+      />
       <section className={styles.debateResultSection}>
         <DebatebarSection
           agreeCount={debateInfo.agreeCount}

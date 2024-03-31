@@ -10,11 +10,11 @@ export default function AfterSurvey() {
             <strong>가치있는 삶</strong>을 위한
           </div>
           <img src={"/로고.png"} alt="logo" />
-          <p>
+          <div className={styles.text}>
             세상에는 당신의 관심이 필요한 일들이 참 많죠. <br />
             여기 당신에게만 공개하는 뉴스를 드립니다. <br />
             즐거운 스낵타임 되시기를!
-          </p>
+          </div>
         </div>
       </section>
       <section className={styles.rightSection}>

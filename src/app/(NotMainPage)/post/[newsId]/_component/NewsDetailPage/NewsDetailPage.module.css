@@ -13,14 +13,17 @@
   margin-top: 12rem;
   margin-left: 5rem;
   display: flex;
+  align-items: center;
 }
 .category {
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
   font-weight: 300;
   font-size: 1.56rem;
-  line-height: 1.125rem;
+  line-height: 1.25rem;
 }
 .date {
   margin-left: 2rem;
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
   font-weight: 300;
   font-size: 1.56rem;
   line-height: 1.25rem;
@@ -35,8 +38,11 @@
   /* width: 70%; */
 }
 .likeAndShare {
+  position: fixed;
+  bottom: 4rem;
+
   margin-left: 5rem;
-  margin-top: 16rem;
+  /* margin-bottom: 5rem; */
 }
 .likeDiv {
   display: flex;
@@ -76,10 +82,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 11.8rem;
+  margin-top: 9rem;
+  position: relative;
+  width: 70%;
+  /* height: 30rem; */
 }
-.imgSection img {
-  width: 80%;
+.articleImg {
+  position: relative !important;
+  /* width: unset !important; */
+  height: initial !important;
 }
 .summarySection {
   width: 80%;
@@ -94,17 +105,27 @@
   width: 80%;
   margin: 6rem 0 4rem 0;
 }
+.mainText div {
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
 .mainText p {
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 2rem;
+  margin-top: 0.7rem;
 }
 .articleSection {
-  width: 80%;
+  width: 75%;
   margin-top: 2.5rem;
 }
 .article {
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 2rem;
+}
+.emptySpace {
+  width: inherit;
+  height: 1rem;
 }

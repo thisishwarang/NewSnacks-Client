@@ -19,6 +19,9 @@
   margin-top: 2rem;
   font-size: 2.5rem;
   font-weight: 700;
+  max-width: 85%;
+  text-align: center;
+  line-height: 2.8rem;
 }
 .prosAndConsSection {
   margin-top: 5rem;
@@ -36,6 +39,7 @@
   background-color: #ffcc60;
 }
 .section4RightSpan {
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
   margin-left: 1.5rem;
   font-size: 1.25rem;
   font-weight: 500;

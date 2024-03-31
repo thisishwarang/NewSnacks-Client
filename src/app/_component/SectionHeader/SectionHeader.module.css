@@ -4,6 +4,7 @@
   align-items: center;
 }
 .header span {
+  font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
   font-size: 3rem;
   font-weight: 700;
   margin-left: 5rem;

@@ -14,10 +14,19 @@
   transform: translateY(-0.625rem);
 }
 .imageSection {
+  position: relative;
   width: inherit;
+  height: 14.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .img {
-  width: inherit;
+  position: relative !important;
+  height: unset !important;
+  min-height: 14.3rem;
+  max-height: 14.3rem;
+  object-fit: cover;
 }
 .titleSection {
   display: flex;

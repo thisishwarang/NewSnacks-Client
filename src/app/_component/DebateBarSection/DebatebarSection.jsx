@@ -10,6 +10,7 @@ export default function DebatebarSection({ agreeCount, disagreeCount }) {
     setForVotes(agreeCount);
     setAgainstVotes(disagreeCount);
   }, [agreeCount, disagreeCount]);
+
   return (
     <>
       <DebateBar forVotes={forVotes} againstVotes={againstVotes} />

@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import styles from "./SurveyPage.module.css";
 import Link from "next/link";
+import { useRecoilState } from "recoil";
+import { surveyResultState } from "@/app/_component/recoil/surveyResultState";
 
 export default function SurveyPage() {
   // 질문과 선택지 배열
@@ -57,6 +59,7 @@ export default function SurveyPage() {
     },
   ];
   const [userAnswers, setUserAnswers] = useState([]);
+  const [surveyResult, setSurveyResult] = useRecoilState(surveyResultState);
   const router = useRouter();
 
   // 사용자 응답 상태
@@ -109,9 +112,18 @@ export default function SurveyPage() {
             사실 이 퀴즈는 당신을 파악하기 위한 연막
           </div>
           <div className={styles.secondDiv}>간식 대신 뉴스낵스를 드립니다</div>
-          <Link href={"/"}>
+          <button
+            className={styles.button}
+            onClick={() => {
+              setSurveyResult(true);
+              router.push("/");
+            }}
+          >
+            Go!
+          </button>
+          {/* <Link href={"/"}>
             <button className={styles.button}>Go!</button>
-          </Link>
+          </Link> */}
         </div>
       )}
     </section>

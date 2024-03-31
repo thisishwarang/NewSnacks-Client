@@ -26,8 +26,6 @@ export default function Home() {
     personalRef,
   ];
   const resetFilterState = useResetRecoilState(categoryFilterState);
-  const [surveyResult, setSurveyResult] = useState(true);
-  //api연동해서 데이터가 있고 없고로 분기처리 가능할듯
   const pathname = usePathname();
 
   useEffect(() => {
@@ -55,7 +53,7 @@ export default function Home() {
           />
         </div> */}
         <section className={styles.personalTasteSection} ref={personalRef}>
-          <PersonalTasteSection surveyResult={surveyResult} />
+          <PersonalTasteSection />
         </section>
         <section
           ref={section2Ref}

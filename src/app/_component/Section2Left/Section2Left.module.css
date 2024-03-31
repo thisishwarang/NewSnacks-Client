@@ -2,11 +2,16 @@
   z-index: 10;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   height: 100%;
+  position: relative;
+  width: inherit;
 }
 .titles {
-  max-width: 90%;
+  position: absolute;
+  top: 2.5rem;
+  max-width: 80%;
+  max-height: 80%;
   height: 80%;
   margin-left: 5rem;
   margin-right: 3rem;
@@ -42,6 +47,8 @@
   justify-content: center;
   align-items: center;
   margin-left: 5rem;
+  position: absolute;
+  bottom: 2.5rem;
 }
 .buttonDiv:hover {
   background-color: #ffcc60;

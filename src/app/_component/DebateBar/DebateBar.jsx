@@ -7,7 +7,6 @@ export default function DebateBar({ forVotes, againstVotes }) {
     forVotes === 0 && againstVotes === 0 ? 0.5 : forVotes / totalVotes;
   const againstRatio =
     forVotes === 0 && againstVotes === 0 ? 0.5 : againstVotes / totalVotes;
-
   return (
     <div
       style={{

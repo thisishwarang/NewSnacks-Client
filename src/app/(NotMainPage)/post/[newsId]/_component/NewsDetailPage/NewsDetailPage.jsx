@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./NewsDetailPage.module.css";
 import CommentSection from "../CommentSection/CommentSection";
+import Image from "next/image";
 
 const categoryMappings = {
   ART: "예술",
@@ -33,48 +34,85 @@ export default function NewsDetailPage({ params }) {
     }
   };
 
-  const handleLikeButton = async () => {
-    // let accessToken = localStorage.getItem("accessToken");
-    if (true) {
-      try {
-        let response;
-        if (!newsInfo.isLiked) {
-          response = await axios.post(
-            `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
-            null,
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
-              },
-            }
-          );
-        } else {
-          response = await axios.delete(
-            `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer eyJKV1QiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjEwLCJyb2wiOiJVU0VSIiwiaWF0IjoxNzA1NTk4MjA3LCJleHAiOjE4MDA4MDc4MDd9.Quz-wAqAMNxv3KFnMG0smo_L646ynamZHe603dwzp2o30w6XDBDOrBg8gHOLMzkvXK6GDthzNCtEXx0Gyo0SfA`,
-              },
-            }
-          );
+  // const handleLikeButton = async () => {
+  //   // let accessToken = localStorage.getItem("accessToken");
+  //   if (true) {
+  //     try {
+  //       let response;
+  //       if (!newsInfo.isLiked) {
+  //         response = await axios.post(
+  //           `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+  //           null,
+  //           {
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //               Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+  //             },
+  //           }
+  //         );
+  //       } else {
+  //         response = await axios.delete(
+  //           `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+  //           {
+  //             headers: {
+  //               "Content-Type": "application/json",
+  //               Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+  //             },
+  //           }
+  //         );
+  //       }
+  //       if (response.status === 200) {
+  //         // 서버에서 좋아요 상태와 하트 카운트가 업데이트되었다고 가정합니다.
+  //         // 서버에서 새로운 데이터를 가져와서 클라이언트 상태를 업데이트합니다.
+  //         getNewsArticle();
+  //       }
+  //     } catch (error) {
+  //       console.log("좋아요 버튼 에러", error);
+  //     }
+  //   }
+  // };
+  const handleLikeBtnClick = async () => {
+    try {
+      const response = await axios.post(
+        `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+        null,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+          },
         }
-        if (response.status === 200) {
-          // 서버에서 좋아요 상태와 하트 카운트가 업데이트되었다고 가정합니다.
-          // 서버에서 새로운 데이터를 가져와서 클라이언트 상태를 업데이트합니다.
-          getNewsArticle();
+      );
+      getNewsArticle();
+      console.log("좋아요버튼클릭 후", response.data.data);
+    } catch (error) {
+      console.log("좋아요버튼클릭 에러", error);
+    }
+  };
+  const handleDeleteLikeBtn = async () => {
+    try {
+      const response = await axios.delete(
+        `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+        null,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+          },
         }
-      } catch (error) {
-        console.log("좋아요 버튼 에러", error);
-      }
+      );
+      getNewsArticle();
+    } catch (error) {
+      console.log("좋취 에러", error);
     }
   };
 
   if (!newsInfo) {
     return <div>Loading...</div>; // 기사 정보를 가져올 때까지 로딩 중 상태를 보여줍니다.
   }
+  const paragraphs = newsInfo.body ? newsInfo.body.split("\n") : null;
 
+  console.log("news-isLiked", newsInfo.isLiked);
   return (
     <div className={styles.container}>
       <section className={styles.leftSection}>
@@ -82,18 +120,28 @@ export default function NewsDetailPage({ params }) {
           <div className={styles.category}>
             {categoryMappings[newsInfo.sectionCategory]}
           </div>
-          {/* <div className={styles.date}>{newsInfo.createdAt.split("T")[0]}</div> */}
+          <div className={styles.date}>
+            {newsInfo.createdAt ? newsInfo.createdAt.split("T")[0] : ""}
+          </div>
         </div>
         <div className={styles.title}>{newsInfo.title}</div>
         <div className={styles.likeAndShare}>
           <div className={styles.likeDiv}>
-            <button className={styles.likeButton} onClick={handleLikeButton}>
-              {newsInfo.isLiked ? (
+            {newsInfo.isLiked ? (
+              <button
+                className={styles.likeButton}
+                onClick={handleDeleteLikeBtn}
+              >
                 <img src="/좋아요-after.png" alt="likebuttonafter" />
-              ) : (
+              </button>
+            ) : (
+              <button
+                className={styles.likeButton}
+                onClick={handleLikeBtnClick}
+              >
                 <img src="/좋아요-before.png" alt="likebuttonbefore" />
-              )}
-            </button>
+              </button>
+            )}
             <span className={styles.likeCount}>
               {newsInfo.heartCount ? newsInfo.heartCount : 0}
             </span>
@@ -105,7 +153,19 @@ export default function NewsDetailPage({ params }) {
       </section>
       <section className={styles.rightSection}>
         <div className={styles.imgSection}>
-          <img src="/전쟁사진.png" alt="warimage" />
+          {newsInfo.imageUrl ? (
+            <Image
+              className={styles.articleImg}
+              src={`https://${newsInfo.imageUrl}`}
+              alt="postImage"
+              // width={800}
+              // height={400}
+              fill
+            />
+          ) : (
+            <div></div>
+          )}
+          {}
         </div>
         <section className={styles.summarySection}>
           <div className={styles.mainText}>
@@ -115,7 +175,16 @@ export default function NewsDetailPage({ params }) {
         </section>
         <section className={styles.articleSection}>
           <article className={styles.article}>
-            <p>{newsInfo.body}</p>
+            {paragraphs ? (
+              <div>
+                {paragraphs.map((paragraph, index) => (
+                  <>
+                    <p key={index}>{paragraph}</p>
+                    <div className={styles.emptySpace}></div>
+                  </>
+                ))}
+              </div>
+            ) : null}
           </article>
         </section>
         <CommentSection articleId={newsInfo.id} />
