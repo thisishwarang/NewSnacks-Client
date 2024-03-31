@@ -42,7 +42,9 @@ export default function Home() {
           className={cx(styles.section, styles.section1)}
         >
           <div className={styles.section1Wrapper}>
-            <img src={"/메인1.png"} alt="main1" />
+            <video autoPlay loop muted>
+              <source src="/MainVideo.mp4" type="video/mp4" />
+            </video>
           </div>
         </section>
         {/* <div className={styles.emptySpace}>

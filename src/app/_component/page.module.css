@@ -6,9 +6,22 @@
   width: 100dvw;
   height: 100dvh;
 }
-.section1Wrapper img {
+.section1Wrapper {
+  background-color: black;
   width: 100dvw;
   height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.section1Wrapper video,
+.section1Wrapper source {
+  /* z-index: -1; */
+  width: 100dvw;
+  position: absolute;
 }
 .personalTasteSection {
   width: 100dvw;
