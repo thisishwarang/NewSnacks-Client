@@ -95,3 +95,8 @@
   background-color: #f4f4f4;
   cursor: pointer;
 }
+@media screen and (max-width: 430px) {
+  .scrollButtons {
+    display: none;
+  }
+}

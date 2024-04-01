@@ -17,7 +17,6 @@ export default function ContinentFilterHeader({
   onFilterChange,
 }) {
   const router = useRouter();
-
   const handleFilterChange = (value) => {
     onFilterChange(value);
     router.push(`/continent/${filterMappings[value]}`);
@@ -29,12 +28,14 @@ export default function ContinentFilterHeader({
           <li key={i}>
             <button
               className={`${styles.filter} 
-              ${filter === value && styles.selected}
+              ${
+                filter.continentName === filterMappings[value] &&
+                styles.selected
+              }
               `}
               onClick={() => handleFilterChange(value)}
             >
               {value}
-              {console.log("filter, value", filter, value)}
             </button>
           </li>
         ))}

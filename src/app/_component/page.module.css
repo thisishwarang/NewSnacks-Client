@@ -7,7 +7,7 @@
   height: 100dvh;
 }
 .section1Wrapper {
-  background-color: black;
+  /* background-color: black; */
   width: 100dvw;
   height: 100dvh;
   padding: 0;
@@ -82,3 +82,56 @@
   width: 100%;
   height: auto;
 } */
+
+@media all and (max-width: 430px) {
+  .container {
+    width: 100dvw;
+    height: 107.5rem;
+  }
+  .section {
+    width: 100dvw;
+    height: 30rem;
+  }
+  .sectionHeader {
+    width: 100dvw;
+    height: 3rem;
+  }
+  .section1Wrapper {
+    width: 100dvw;
+    height: 30rem;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    /* background-color: black; */
+  }
+  .section1Wrapper video,
+  .section1Wrapper source {
+    width: 100dvw;
+    position: absolute;
+  }
+  .personalTasteSection {
+    width: 100dvw;
+    height: 22rem;
+  }
+  .section2 {
+    width: 100dvw;
+    height: 24rem;
+  }
+  .section2Wrapper .sectionHeader {
+    margin-top: 4.3rem;
+  }
+  .section3 {
+    width: 100dvw;
+    height: 24rem;
+  }
+  .section3Wrapper {
+    background: none;
+  }
+  .section3span,
+  .section3Body {
+    display: none;
+  }
+  .section4 {
+    display: none;
+  }
+}

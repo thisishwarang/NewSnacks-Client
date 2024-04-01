@@ -4,6 +4,7 @@ import Section2Left from "../Section2Left/Section2Left";
 import Section2Right from "../Section2Right/Section2Right";
 import styles from "./Section2Body.module.css";
 import axios from "axios";
+import MobileSection2Body from "./MobileSection2Body/MobileSection2Body";
 
 export default function Section2Body() {
   const [thisWeekNews, setThisWeekNews] = useState([]);
@@ -47,6 +48,9 @@ export default function Section2Body() {
           hoveredId={hoveredId}
           isHovered={isHovered}
         />
+      </div>
+      <div className={styles.mobileSection}>
+        <MobileSection2Body thisWeekNews={thisWeekNews} />
       </div>
     </div>
   );

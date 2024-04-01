@@ -13,7 +13,6 @@ const filterMappings = {
 };
 export default function FilterHeader({ filter, filters, onFilterChange }) {
   const router = useRouter();
-
   const handleFilterChange = (value) => {
     onFilterChange(value);
     router.push(`/category/${filterMappings[value]}`);
@@ -25,7 +24,9 @@ export default function FilterHeader({ filter, filters, onFilterChange }) {
           <li key={i}>
             <button
               className={`${styles.filter} ${
-                filter === value ? styles.selected : ""
+                filter.params.subject === filterMappings[value]
+                  ? styles.selected
+                  : ""
               }
               `}
               onClick={() => handleFilterChange(value)}

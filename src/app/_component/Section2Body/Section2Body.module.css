@@ -11,3 +11,22 @@
   width: 45dvw;
   background-color: #ffcc60;
 }
+.mobileSection {
+  display: none;
+}
+@media screen and (max-width: 430px) {
+  .section2Body {
+    width: 100dvw;
+    height: 15rem;
+    margin-top: 1.3rem;
+  }
+  .leftSection,
+  .rightSection {
+    display: none;
+  }
+  .mobileSection {
+    display: block;
+    width: 100dvw;
+    /* height: 13rem; */
+  }
+}
