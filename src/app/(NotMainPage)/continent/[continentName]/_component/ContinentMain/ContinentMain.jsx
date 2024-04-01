@@ -14,14 +14,14 @@ const continentFilters = [
   "오세아니아",
   "유럽",
 ];
-export default function ContinentMain() {
+export default function ContinentMain({ params }) {
   const [continentFilter, setContinentFilter] =
     useRecoilState(continentFilterState);
   return (
     <main className={styles.main}>
       <ContinentFilterHeader
         filters={continentFilters}
-        filter={continentFilter}
+        filter={params}
         onFilterChange={setContinentFilter}
       />
       <PostBoard filter={continentFilter} />

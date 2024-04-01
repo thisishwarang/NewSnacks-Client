@@ -6,13 +6,22 @@ import { useState, useEffect } from "react";
 import SortAndSearch from "../SortAndSearch/SortAndSearch";
 import axios from "axios";
 
-const filterMappings = {
+const sectionCategoryMappings = {
   전체: "",
   예술: "ART",
   환경: "ENVIRONMENT",
   경제: "ECONOMY",
   정치: "POLITICS",
   기술: "TECHNOLOGY",
+};
+const locationCategoryMappings = {
+  전체: "",
+  북아메리카: "NORTHAMERICA",
+  남아메리카: "SOUTHAMERICA",
+  아시아: "ASIA",
+  아프리카: "AFRICA",
+  오세아니아: "OCEANIA",
+  유럽: "EUROPE",
 };
 export default function PostBoard({ filter }) {
   console.log("postboard", filter);
@@ -23,13 +32,20 @@ export default function PostBoard({ filter }) {
   useEffect(() => {
     getInitialArticles();
   }, [sortOrder, filter]);
-  //sortOrder가 바뀔때마다 아티클 새로 조회하는지 점검 필요
 
   async function fetchArticles(page) {
     try {
-      const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&sectionCategory=${filterMappings[filter]}&page=${page}`
-      );
+      let requestURL;
+      if (sectionCategoryMappings.hasOwnProperty(filter)) {
+        requestURL = `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&sectionCategory=${sectionCategoryMappings[filter]}&page=${page}`;
+      } else if (locationCategoryMappings.hasOwnProperty(filter)) {
+        requestURL = `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&locationCategory=${locationCategoryMappings[filter]}&page=${page}`;
+      } else {
+        console.error("유효하지 않은 filter 값입니다.");
+        return [];
+      }
+
+      const response = await axios.get(requestURL);
       console.log(response.data.data);
       return response.data.data;
     } catch (error) {
