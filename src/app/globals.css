@@ -191,3 +191,8 @@ body {
   font-weight: 200;
   src: url("/fonts/YEONGJUPunggiGinseng.otf") format("truetype");
 }
+@font-face {
+  font-family: "NotoSans";
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap")
+    format("woff");
+}

@@ -48,8 +48,9 @@
   justify-content: space-between;
 }
 .informationSection div {
+  font-family: "NotoSans";
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.125rem;
 }
 @media screen and (max-width: 430px) {

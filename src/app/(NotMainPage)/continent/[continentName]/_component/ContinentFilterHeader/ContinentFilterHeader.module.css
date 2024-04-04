@@ -5,17 +5,23 @@
   padding: 0 0.5rem;
 }
 .filters {
+  width: 55%;
   display: flex;
+  justify-content: center;
+  gap: 1.625rem;
 }
 .filter {
-  font-size: 1.2rem;
-  margin: 2rem;
+  border: 1px solid black;
+  border-radius: 90px;
+  font-size: 1.1rem;
   font-weight: 500;
+  padding: 0.3125rem 0.875rem;
   background-color: transparent;
   transition: all ease 0.3s;
 }
 .filter:hover,
 .filter.selected {
   opacity: 1;
-  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #ffcc60;
 }

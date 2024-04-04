@@ -11,11 +11,13 @@
   padding: 8.375rem 0 5rem 0;
 }
 .titleDate {
+  font-family: "NotoSans";
   /* margin-top: 8.375rem; */
   font-size: 1.25rem;
   font-weight: 500;
 }
 .debateTitle {
+  font-family: "NotoSans";
   margin-top: 2rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -26,8 +28,9 @@
   width: 74%;
 }
 .debateParagraph p {
+  font-family: "NotoSans";
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 2rem;
 }
 .section4Right {
