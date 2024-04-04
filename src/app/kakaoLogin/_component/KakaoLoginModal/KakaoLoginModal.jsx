@@ -32,7 +32,8 @@ export default function KakaoLoginModal() {
           },
         }
       );
-      console.log(response);
+      console.log("로그인결과", response.data.data.accessToken);
+      //response.data.data.accessToken 이거 로컬스토리지에 넣으면 됨
       localStorage.setItem("accessToken", process.env.NEXT_PUBLIC_ACCESSTOKEN);
       //나중에 response값에서 토큰  저장하면 됨.
       router.back();

@@ -28,14 +28,16 @@
 
 .title span {
   color: black;
+  font-family: "NotoSans";
   font-size: 1.68rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -1px;
   line-height: 2.2rem;
 }
 .title span:hover {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.4);
+  /* font-weight: 700; */
 }
 .buttonDiv {
   width: 17.5rem;
@@ -49,14 +51,15 @@
   margin-left: 5rem;
   position: absolute;
   bottom: 2.5rem;
+  cursor: pointer;
 }
 .buttonDiv:hover {
   background-color: #ffcc60;
-  cursor: pointer;
 }
 .button {
-  font-size: 1.3rem;
-  /* font-weight: 400; */
+  font-family: "NotoSans";
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 .button:hover {
   cursor: pointer;

@@ -15,8 +15,9 @@
   margin-top: 7rem;
 }
 .explain span {
+  font-family: "NotoSans";
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.25rem;
   color: #7e7e7e;
 }

@@ -5,6 +5,7 @@ import DebatebarSection from "../DebateBarSection/DebatebarSection";
 import styles from "./Section4Body.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Section4Body() {
   const [thisWeekPopcornDebate, setThisWeekPopcornDebate] = useState([]);
@@ -59,7 +60,7 @@ export default function Section4Body() {
   return (
     <div className={styles.container}>
       <div className={styles.section4Left}>
-        <div className={styles.titleDate}>2024년 3월 5주 주제</div>
+        <div className={styles.titleDate}>2024년 4월 2주 주제</div>
         <div className={styles.debateTitle}>{thisWeekPopcornDebate.title}</div>
         <section className={styles.prosAndConsSection}>
           <DebatebarSection
@@ -68,10 +69,15 @@ export default function Section4Body() {
           />
         </section>
         <div className={styles.debateButton}>
-          <Button
+          {/* <Button
             text={"투표하러 가기"}
             route={`/popcorn-debate/${thisWeekPopcornDebate.debateId}`}
-          />
+          /> */}
+          <Link href={`/popcorn-debate/${thisWeekPopcornDebate.debateId}`}>
+            <div className={styles.buttonDiv}>
+              <button className={styles.button}>투표하러 가기</button>
+            </div>
+          </Link>
         </div>
       </div>
       <div className={styles.section4Right}>

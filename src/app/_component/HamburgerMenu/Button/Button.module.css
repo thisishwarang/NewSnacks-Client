@@ -17,6 +17,7 @@
   cursor: pointer;
 }
 .button {
+  font-family: "NotoSans";
   font-size: 1rem;
   font-weight: bold;
 }
