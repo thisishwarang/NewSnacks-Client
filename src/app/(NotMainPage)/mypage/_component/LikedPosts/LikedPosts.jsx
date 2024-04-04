@@ -13,7 +13,16 @@ export default function LikedPosts() {
   }, []);
   const getLikedPosts = async () => {
     try {
-      const response = await axios.get(`/data/viewAllNews.json`);
+      const response = await axios.get(
+        `https://dev.jaeyun.shop/v1/members/me/liked-articles`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+          },
+        }
+      );
+      console.log(response.data.data);
       setLikedPosts(response.data.data);
     } catch (error) {
       console.log("에러발생");
