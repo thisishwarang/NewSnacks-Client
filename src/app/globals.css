@@ -179,7 +179,7 @@ a {
 /* 대형 디스플레이 */
 @media (min-width: 1920px) {
   html {
-    font-size: 22px;
+    font-size: 21px;
   }
 }
 body {

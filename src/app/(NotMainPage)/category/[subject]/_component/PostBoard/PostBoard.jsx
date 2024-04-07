@@ -85,11 +85,15 @@ export default function PostBoard({ filter }) {
       <SortAndSearch sortOrder={sortOrder} onSortChange={setSortOrder} />
       <div className={styles.posts}>
         <ul>
-          {articles.map((article, i) => (
-            <li key={i}>
-              <Post article={article} />
-            </li>
-          ))}
+          {articles.length !== 0 ? (
+            articles.map((article, i) => (
+              <li key={i}>
+                <Post article={article} />
+              </li>
+            ))
+          ) : (
+            <div className={styles.noArticles}>보여드릴 뉴스가 없어요ㅠㅠ</div>
+          )}
         </ul>
       </div>
       <div className={styles.moreposts}>

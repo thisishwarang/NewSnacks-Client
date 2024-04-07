@@ -200,7 +200,9 @@ export default function CommentSection({ articleId }) {
                 <div className={styles.userInfo}>
                   <img src={"/댓글프로필.svg"} alt="profileimg" />
                   <span className={styles.nickname}>{comment.writerName}</span>
-                  <span className={styles.createdAt}>시간</span>
+                  <span className={styles.createdAt}>
+                    {comment.createdAt ? comment.createdAt.split("T")[0] : ""}
+                  </span>
                 </div>
                 {editingCommentId === comment.id ? (
                   <div className={styles.editBox}>
