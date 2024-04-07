@@ -83,25 +83,25 @@ export default function MainPageNavbar({ targetRefs }) {
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[4])}
         >
-          취향저격!
+          취향뉴스!
         </button>
         <button
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[1])}
         >
-          놓치면 손해!
+          한주뉴스!
         </button>
         <button
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[2])}
         >
-          뉴스는 공짜!
+          대륙뉴스!
         </button>
         <button
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[3])}
         >
-          팝콘가져와!
+          찬반토론!
         </button>
       </div>
       <div className={styles.navRight}>

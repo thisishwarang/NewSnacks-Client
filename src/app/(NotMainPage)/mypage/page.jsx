@@ -7,7 +7,7 @@ export default function page() {
   return (
     <>
       <TastePosts />
-      {/* <LikedPosts /> */}
+      <LikedPosts />
       <MyDebates />
       <MyComments />
     </>
