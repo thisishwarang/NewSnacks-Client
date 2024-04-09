@@ -110,6 +110,9 @@ export default function NewsDetailPage({ params }) {
   if (!newsInfo) {
     return <div>Loading...</div>; // 기사 정보를 가져올 때까지 로딩 중 상태를 보여줍니다.
   }
+  const summarys = newsInfo.summary
+    ? newsInfo.summary.split("\n").slice(0, -1)
+    : null;
   const paragraphs = newsInfo.body ? newsInfo.body.split("\n") : null;
 
   console.log("news-isLiked", newsInfo.isLiked);
@@ -170,7 +173,19 @@ export default function NewsDetailPage({ params }) {
         <section className={styles.summarySection}>
           <div className={styles.mainText}>
             <div>뉴스낵스 세줄 요약</div>
-            <p>{newsInfo.summary}</p>
+            {/* <p>{newsInfo.summary}</p> */}
+            <article className={styles.summaryArticle}>
+              {summarys ? (
+                <div>
+                  {summarys.map((summary, index) => (
+                    <>
+                      <p key={index}>{summary}</p>
+                      <span className={styles.emptySummarySpace}></span>
+                    </>
+                  ))}
+                </div>
+              ) : null}
+            </article>
           </div>
         </section>
         <section className={styles.articleSection}>

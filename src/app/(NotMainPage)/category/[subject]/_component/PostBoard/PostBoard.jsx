@@ -71,6 +71,9 @@ export default function PostBoard({ filter }) {
     setLoading(true);
     try {
       const newArticles = await fetchArticles(page + 1); // 다음 페이지의 데이터 가져오기
+      if (newArticles.length === 0) {
+        alert("더이상 뉴스가 없어요ㅠ");
+      }
       setArticles((prevArticles) => [...prevArticles, ...newArticles]);
       setPage((prevPage) => prevPage + 1);
     } catch (error) {
