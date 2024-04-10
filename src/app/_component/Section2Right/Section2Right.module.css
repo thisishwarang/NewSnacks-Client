@@ -23,8 +23,14 @@
 .textSection {
   font-family: "NotoSans";
   width: 33rem;
+  /* height: 15rem; */
   font-size: 1.25rem;
   margin-top: 1.68rem;
   line-height: 1.81rem;
   font-weight: 400;
+  background-color: aqua;
 }
+/* .emptySummarySpace {
+  width: inherit;
+  height: 1rem;
+} */

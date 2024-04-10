@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./CommentContainer.module.css";
 import DebateCommentSort from "../DebateCommentSort/DebateCommentSort";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function CommentContainer({ debateInfo }) {
   const [comments, setComments] = useState([]);
@@ -10,25 +11,29 @@ export default function CommentContainer({ debateInfo }) {
   const [nowComment, setNowComment] = useState("");
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editedComment, setEditedComment] = useState("");
+  const [textareaCount, setTextareaCount] = useState(0);
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
 
   const getDebateComments = async () => {
-    try {
-      const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/comments?order=${sortOrder}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
-          },
-        }
-      );
-      console.log("댓글조회", response.data.data);
-      setComments(response.data.data);
-    } catch (error) {
-      console.log(error);
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      try {
+        const response = await axios.get(
+          `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/comments?order=${sortOrder}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        console.log("댓글조회", response.data.data);
+        setComments(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   useEffect(() => {
@@ -39,6 +44,7 @@ export default function CommentContainer({ debateInfo }) {
 
   const handleTextareaChange = (e) => {
     setNowComment(e.target.value);
+    setTextareaCount(e.target.value.length);
   };
 
   const handleAddComment = async () => {
@@ -65,13 +71,14 @@ export default function CommentContainer({ debateInfo }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
       console.log(response);
       getDebateComments();
       setNowComment("");
+      setTextareaCount(0);
     } catch (error) {
       if (error.response.data.status === 409) {
         alert(
@@ -100,12 +107,19 @@ export default function CommentContainer({ debateInfo }) {
     <section className={styles.commentSection}>
       <div className={styles.commentContainer}>
         <div className={styles.addCommentBox}>
-          <textarea
-            placeholder="이번주 팝콘 토론에 대한 당신의 의견을 알려주세요."
-            onChange={handleTextareaChange}
-            value={nowComment}
-            onKeyDown={handleKeyDown}
-          />
+          <div className={styles.textareaBox}>
+            <textarea
+              placeholder="이번주 팝콘 토론에 대한 당신의 의견을 알려주세요."
+              onChange={handleTextareaChange}
+              value={nowComment}
+              onKeyDown={handleKeyDown}
+              maxLength={200}
+            />
+            <p>
+              <span>{textareaCount}</span>
+              <span>/200 자</span>
+            </p>
+          </div>
           <button onClick={handleAddComment}>등록</button>
         </div>
         <DebateCommentSort sortOrder={sortOrder} onSortChange={setSortOrder} />
@@ -155,7 +169,7 @@ export default function CommentContainer({ debateInfo }) {
                           </button>
                         </div>
                       ) : (
-                        ""
+                        <div></div>
                       )}
                       <div className={styles.likeBox}>
                         {comment.isLikedByMe ? (

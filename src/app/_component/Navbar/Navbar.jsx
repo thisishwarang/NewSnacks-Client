@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
   const hamburgerRef = useRef(null);
-
   const [prevScrollpos, setPrevScrollpos] = useState(
     typeof window !== "undefined" ? window.scrollY : 0
   );
@@ -18,6 +18,7 @@ export default function Navbar() {
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
   const [isLogined, setIsLogined] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
       setIsLogined(true);
@@ -67,8 +68,12 @@ export default function Navbar() {
     window.location.href = KAKAO_AUTH_URL;
   };
   const handleLogoutClick = () => {
-    localStorage.removeItem("accessToken");
-    setIsLogined(false);
+    const realLogout = window.confirm("정말 로그아웃 하시겠습니까?");
+    if (realLogout) {
+      localStorage.removeItem("accessToken");
+      setIsLogined(false);
+      router.push("/");
+    }
   };
 
   return (

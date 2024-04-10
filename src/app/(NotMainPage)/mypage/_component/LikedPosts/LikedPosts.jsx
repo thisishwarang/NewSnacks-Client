@@ -12,17 +12,17 @@ export default function LikedPosts() {
     getLikedPosts();
   }, []);
   const getLikedPosts = async () => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/members/me/liked-articles`,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
-      console.log(response.data.data);
       setLikedPosts(response.data.data);
     } catch (error) {
       console.log("에러발생");
@@ -51,7 +51,6 @@ export default function LikedPosts() {
   const handleNextClick = () => {
     if (carouselRef.current) {
       if (scrollPosition >= carouselRef.current.clientWidth * 3) return;
-      // 현재 스크롤 위치에서 Carousel 컴포넌트의 길이만큼 증가
       const newScrollPosition =
         scrollPosition + carouselRef.current.clientWidth;
       setScrollPosition(newScrollPosition);

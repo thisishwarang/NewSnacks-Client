@@ -13,13 +13,14 @@ export default function DebateDetailContainer({ params }) {
   }, []);
 
   const getDebateDetailPage = async () => {
+    const accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/debates/${params.titleId}`,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );

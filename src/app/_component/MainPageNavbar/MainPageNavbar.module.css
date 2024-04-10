@@ -1,7 +1,7 @@
 .navbarVisible {
   position: fixed;
   width: 100dvw;
-  height: 4.375rem;
+  height: 4rem;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.8);
   display: flex;

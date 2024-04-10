@@ -4,6 +4,7 @@ import styles from "./MainPageNavbar.module.css";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { useRouter } from "next/navigation";
 // import { useRef } from "react";
 
 export default function MainPageNavbar({ targetRefs }) {
@@ -18,6 +19,7 @@ export default function MainPageNavbar({ targetRefs }) {
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
   const [isLogined, setIsLogined] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
       setIsLogined(true);
@@ -67,8 +69,12 @@ export default function MainPageNavbar({ targetRefs }) {
     window.location.href = KAKAO_AUTH_URL;
   };
   const handleLogoutClick = () => {
-    localStorage.removeItem("accessToken");
-    setIsLogined(false);
+    const realLogout = window.confirm("정말 로그아웃 하시겠습니까?");
+    if (realLogout) {
+      localStorage.removeItem("accessToken");
+      setIsLogined(false);
+      router.push("/");
+    }
   };
   return (
     <nav
@@ -83,25 +89,25 @@ export default function MainPageNavbar({ targetRefs }) {
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[4])}
         >
-          취향뉴스!
+          취향뉴스
         </button>
         <button
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[1])}
         >
-          한주뉴스!
+          한주뉴스
         </button>
         <button
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[2])}
         >
-          대륙뉴스!
+          대륙뉴스
         </button>
         <button
           className={styles.scrollButton}
           onClick={() => scrollToSection(targetRefs[3])}
         >
-          찬반토론!
+          찬반토론
         </button>
       </div>
       <div className={styles.navRight}>

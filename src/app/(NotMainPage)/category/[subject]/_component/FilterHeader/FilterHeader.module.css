@@ -26,3 +26,9 @@
   font-weight: bold;
   background-color: #ffcc60;
 }
+
+@media all and (max-width: 430px) {
+  .filters {
+    gap: 1.5rem;
+  }
+}

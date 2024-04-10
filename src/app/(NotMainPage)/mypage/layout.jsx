@@ -28,7 +28,7 @@ export default function Layout({ children }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );

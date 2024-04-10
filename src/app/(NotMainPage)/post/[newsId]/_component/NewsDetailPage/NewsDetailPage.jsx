@@ -16,7 +16,7 @@ const categoryMappings = {
 export default function NewsDetailPage({ params }) {
   //isLiked가 계속 false로만 가져와지는 버그 있음. heartCount는 1로 증가함
   //postman에서는 잘 되는것으로 보아 accessToken 문제일 가능성 높음. 이후 수정 필요
-  const [newsInfo, setNewsInfo] = useState([]);
+  const [newsInfo, setNewsInfo] = useState();
 
   useEffect(() => {
     getNewsArticle();
@@ -72,36 +72,41 @@ export default function NewsDetailPage({ params }) {
   //   }
   // };
   const handleLikeBtnClick = async () => {
-    try {
-      const response = await axios.post(
-        `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
-        null,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
-          },
-        }
-      );
-      getNewsArticle();
-      console.log("좋아요버튼클릭 후", response.data.data);
-    } catch (error) {
-      console.log("좋아요버튼클릭 에러", error);
+    let accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      try {
+        const response = await axios.post(
+          `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        getNewsArticle();
+        console.log("좋아요버튼클릭 후", response.data.data);
+      } catch (error) {
+        console.log("좋아요버튼클릭 에러", error);
+      }
+    } else {
+      alert("로그인 이후 이용하세요");
     }
   };
   const handleDeleteLikeBtn = async () => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.delete(
         `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
-        null,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
       getNewsArticle();
+      console.log("좋아요버튼취소클릭 후", response.data.data);
     } catch (error) {
       console.log("좋취 에러", error);
     }
@@ -110,9 +115,7 @@ export default function NewsDetailPage({ params }) {
   if (!newsInfo) {
     return <div>Loading...</div>; // 기사 정보를 가져올 때까지 로딩 중 상태를 보여줍니다.
   }
-  const summarys = newsInfo.summary
-    ? newsInfo.summary.split("\n").slice(0, -1)
-    : null;
+  const summarys = newsInfo.summary ? newsInfo.summary.split("\n") : null;
   const paragraphs = newsInfo.body ? newsInfo.body.split("\n") : null;
 
   console.log("news-isLiked", newsInfo.isLiked);
@@ -135,14 +138,20 @@ export default function NewsDetailPage({ params }) {
                 className={styles.likeButton}
                 onClick={handleDeleteLikeBtn}
               >
-                <img src="/좋아요-after.png" alt="likebuttonafter" />
+                <img
+                  src="/뉴스상세페이지좋아요-after.svg"
+                  alt="likebuttonafter"
+                />
               </button>
             ) : (
               <button
                 className={styles.likeButton}
                 onClick={handleLikeBtnClick}
               >
-                <img src="/좋아요-before.png" alt="likebuttonbefore" />
+                <img
+                  src="/뉴스상세페이지좋아요-before.svg"
+                  alt="likebuttonbefore"
+                />
               </button>
             )}
             <span className={styles.likeCount}>
@@ -150,7 +159,7 @@ export default function NewsDetailPage({ params }) {
             </span>
           </div>
           <button className={styles.shareButton}>
-            <img src="/공유.png" alt="share" />
+            <img src="/공유.svg" alt="share" />
           </button>
         </div>
       </section>
@@ -178,10 +187,10 @@ export default function NewsDetailPage({ params }) {
               {summarys ? (
                 <div>
                   {summarys.map((summary, index) => (
-                    <>
-                      <p key={index}>{summary}</p>
+                    <div key={index}>
+                      <p>{summary}</p>
                       <span className={styles.emptySummarySpace}></span>
-                    </>
+                    </div>
                   ))}
                 </div>
               ) : null}
@@ -193,10 +202,10 @@ export default function NewsDetailPage({ params }) {
             {paragraphs ? (
               <div>
                 {paragraphs.map((paragraph, index) => (
-                  <>
-                    <p key={index}>{paragraph}</p>
+                  <div key={index}>
+                    <p>{paragraph}</p>
                     <div className={styles.emptySpace}></div>
-                  </>
+                  </div>
                 ))}
               </div>
             ) : null}

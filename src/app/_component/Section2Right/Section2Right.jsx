@@ -16,9 +16,13 @@ export default function Section2Right(props) {
     }
   }, [thisWeekNews]);
   const hoveredNews = news.find((value) => value.id === hoveredId);
+
   if (!hoveredNews) {
     return <div></div>;
   }
+  const summarys = hoveredNews.summary
+    ? hoveredNews.summary.split("\n").slice(0, -1)
+    : null;
   return (
     <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
       <div className={styles.imgContainer}>
@@ -34,7 +38,16 @@ export default function Section2Right(props) {
         )}
       </div>
       <div className={styles.textSection}>
-        {hoveredNews ? hoveredNews.summary : null}
+        {summarys ? (
+          <div>
+            {summarys.map((summary, index) => (
+              <div key={index}>
+                <p>{summary}</p>
+                <span className={styles.emptySummarySpace}></span>
+              </div>
+            ))}
+          </div>
+        ) : null}
       </div>
     </div>
   );

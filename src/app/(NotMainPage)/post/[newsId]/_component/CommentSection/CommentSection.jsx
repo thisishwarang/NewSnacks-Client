@@ -10,12 +10,18 @@ export default function CommentSection({ articleId }) {
   const [nowComment, setNowComment] = useState("");
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editedComment, setEditedComment] = useState("");
-  const textareaRef = useRef(null);
+  const [textareaCount, setTextareaCount] = useState(0);
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
 
+  useEffect(() => {
+    if (articleId) {
+      getComments();
+    }
+  }, [articleId, sortOrder]);
   const getComments = async () => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/articles/${articleId}/comments?order=${sortOrder}`,
@@ -23,7 +29,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -33,14 +39,11 @@ export default function CommentSection({ articleId }) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    if (articleId) {
-      getComments();
-    }
-  }, [articleId, sortOrder]);
+
   //사용자 입력 받아오기
   const handleTextareaChange = (e) => {
     setNowComment(e.target.value);
+    setTextareaCount(e.target.value.length);
   };
   //댓글 추가
   const handleAddComment = async () => {
@@ -68,13 +71,14 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
       console.log(response);
       getComments();
       setNowComment("");
+      setTextareaCount(0);
     } catch (error) {
       console.log("댓글 등록 에러", error);
     }
@@ -86,6 +90,7 @@ export default function CommentSection({ articleId }) {
   };
   //댓글 수정완료
   const handleUpdateBtnClick = async (commentId) => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.patch(
         `https://dev.jaeyun.shop/v1/comments/${commentId}`,
@@ -95,7 +100,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -109,6 +114,7 @@ export default function CommentSection({ articleId }) {
   };
   //댓글 삭제
   const handleCommentDelete = async (commentId) => {
+    let accessToken = localStorage.getItem("accessToken");
     const deleteCheck = window.confirm("정말 삭제하시겠습니까?");
     if (deleteCheck) {
       try {
@@ -117,7 +123,7 @@ export default function CommentSection({ articleId }) {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+              Authorization: `Bearer ${accessToken}`,
             },
           }
         );
@@ -131,9 +137,13 @@ export default function CommentSection({ articleId }) {
   //댓글 좋아요
   const handleCommentLike = async (commentId) => {
     const accessToken = localStorage.getItem("accessToken");
-    console.log("accessToken", accessToken);
     if (!accessToken) {
-      console.log("좋아요 버튼 클릭하려면 어세스 필요");
+      const shouldLogin = window.confirm(
+        "로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?"
+      );
+      if (shouldLogin) {
+        window.location.href = KAKAO_AUTH_URL;
+      }
       return;
     }
     try {
@@ -143,7 +153,7 @@ export default function CommentSection({ articleId }) {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -155,13 +165,14 @@ export default function CommentSection({ articleId }) {
   };
   //댓글 좋아요 취소
   const handleCommentLikeDelete = async (commentId) => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.delete(
         `https://dev.jaeyun.shop/v1/comments/${commentId}/likes`,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -183,13 +194,21 @@ export default function CommentSection({ articleId }) {
     <section className={styles.commentSection}>
       <div className={styles.commentContainer}>
         <div className={styles.addCommentBox}>
-          <textarea
-            placeholder="당신의 의견을 알려주세요."
-            onChange={handleTextareaChange}
-            value={nowComment}
-            // onKeyUp={enterkey}
-            onKeyDown={handleKeyDown}
-          />
+          <div className={styles.textareaBox}>
+            <textarea
+              placeholder="당신의 의견을 알려주세요."
+              onChange={handleTextareaChange}
+              value={nowComment}
+              // onKeyUp={enterkey}
+              onKeyDown={handleKeyDown}
+              maxLength={200}
+            />
+            <p>
+              <span>{textareaCount}</span>
+              <span>/200 자</span>
+            </p>
+          </div>
+
           <button onClick={handleAddComment}>등록</button>
         </div>
         <CommentSort sortOrder={sortOrder} onSortChange={setSortOrder} />

@@ -47,16 +47,11 @@ export default function Home() {
             </video>
           </div>
         </section>
-        {/* <div className={styles.emptySpace}>
-          <img
-            className={styles.policeline}
-            src={"/폴리스라인1.png"}
-            alt="폴리스라인1"
-          />
-        </div> */}
+        {/* 취향section */}
         <section className={styles.personalTasteSection} ref={personalRef}>
           <PersonalTasteSection />
         </section>
+        {/* section2 */}
         <section
           ref={section2Ref}
           className={cx(styles.section, styles.section2)}
@@ -71,13 +66,7 @@ export default function Home() {
             <Section2Body />
           </div>
         </section>
-        {/* <div className={styles.emptySpace}>
-          <img
-            className={styles.policeline}
-            src={"/폴리스라인2.png"}
-            alt="폴리스라인2"
-          />
-        </div> */}
+        {/* section3 */}
         <section
           ref={section3Ref}
           className={cx(styles.section, styles.section3)}
@@ -110,13 +99,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* <div className={styles.emptySpace}>
-          <img
-            className={styles.policeline}
-            src={"/폴리스라인3.png"}
-            alt="폴리스라인3"
-          />
-        </div> */}
+        {/* section4 */}
         <section
           ref={section4Ref}
           className={cx(styles.section, styles.section4)}

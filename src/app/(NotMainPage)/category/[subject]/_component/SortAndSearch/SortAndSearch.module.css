@@ -40,3 +40,8 @@
   width: 1.5rem;
   height: 1.5rem;
 }
+@media all and (max-width: 430px) {
+  .sortAndSearch {
+    display: none;
+  }
+}

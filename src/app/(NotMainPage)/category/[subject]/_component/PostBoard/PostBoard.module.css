@@ -60,3 +60,27 @@
 .button:hover {
   cursor: pointer;
 }
+@media all and (max-width: 430px) {
+  .container {
+    min-height: 110dvh;
+  }
+  .posts {
+    width: 80%;
+    margin-top: 1.7rem;
+  }
+  .posts ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .posts ul li {
+    display: flex;
+    justify-content: space-between;
+    float: left;
+    width: 50%;
+  }
+  .posts ul li:nth-child(3n + 1) {
+    clear: none;
+  }
+}

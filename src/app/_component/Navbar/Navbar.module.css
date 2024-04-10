@@ -40,7 +40,7 @@
   margin-left: 3rem;
 }
 .logo img {
-  width: 18rem;
+  width: 13rem;
 }
 .span {
   font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
@@ -78,4 +78,10 @@
 .hamburgerButton:hover {
   background-color: #f4f4f4;
   cursor: pointer;
+}
+
+@media all and (max-width: 430px) {
+  .span {
+    display: none;
+  }
 }

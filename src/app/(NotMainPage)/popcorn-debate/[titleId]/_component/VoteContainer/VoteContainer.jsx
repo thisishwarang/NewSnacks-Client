@@ -9,7 +9,7 @@ export default function VoteContainer({ debateInfo, getDebateDetailPage }) {
     <div className={styles.container}>
       <div className={styles.explain}>
         <span>팝콘을 드래그하여 투표하세요</span>
-        <span>(기회는 한번 뿐!)</span>
+        <span>(기회는 한 번뿐!)</span>
       </div>
       <VoteSection
         debateInfo={debateInfo}

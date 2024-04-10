@@ -12,17 +12,17 @@ export default function MyComments() {
     getMyComments();
   }, []);
   const getMyComments = async () => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
         "https://dev.jaeyun.shop/v1/members/me/comments",
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
-      console.log(response.data.data);
       setComments(response.data.data);
     } catch (error) {
       console.log("에러발생");

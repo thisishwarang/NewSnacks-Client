@@ -14,8 +14,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 60%;
+  max-width: 17.75rem;
   font-size: 1.68rem;
   font-weight: bold;
+  line-height: 2.18rem;
   text-align: center;
+  word-break: keep-all;
 }

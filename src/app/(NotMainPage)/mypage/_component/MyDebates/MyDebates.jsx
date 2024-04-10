@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./MyDebates.module.css";
 import axios from "axios";
 import MyDebate from "./MyDebate/MyDebate";
+import Link from "next/link";
 
 export default function MyDebates() {
   const [myDebates, setMyDebates] = useState([]);
@@ -13,13 +14,14 @@ export default function MyDebates() {
     getMyDebates();
   }, []);
   const getMyDebates = async () => {
+    const accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/members/me/participated-debates`,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -43,7 +45,7 @@ export default function MyDebates() {
       <div className={styles.debatesSection}>
         <div className={styles.carousel} ref={carouselRef}>
           {myDebates.map((myDebate, i) => (
-            <MyDebate myDebate={myDebate} key={i} />
+            <MyDebate key={i} myDebate={myDebate} />
           ))}
         </div>
       </div>
