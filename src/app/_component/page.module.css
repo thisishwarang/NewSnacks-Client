@@ -2,26 +2,34 @@
   width: 100dvw;
   height: 477dvh;
 }
+.topBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.81rem;
+  z-index: 10;
+  width: 3.75rem;
+  height: 3.75rem;
+  cursor: pointer;
+}
+.topBtn:hover {
+  transform: scale(1.1);
+}
 .section {
   width: 100dvw;
   height: 100dvh;
 }
 .section1Wrapper {
-  /* background-color: black; */
   width: 100dvw;
-  height: 100dvh;
+  height: 100%;
   padding: 0;
-  overflow: hidden;
-  position: absolute;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  position: relative;
 }
 .section1Wrapper video,
 .section1Wrapper source {
-  /* z-index: -1; */
   width: 100dvw;
+  object-fit: cover;
   position: absolute;
+  bottom: 0;
 }
 .personalTasteSection {
   width: 100dvw;

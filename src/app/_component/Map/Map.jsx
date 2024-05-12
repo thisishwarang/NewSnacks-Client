@@ -2,13 +2,25 @@ import { useRouter } from "next/navigation";
 import styles from "./Map.module.css";
 import { useRecoilState } from "recoil";
 import { continentFilterState } from "../recoil/continentFilterState";
+
+const filterMappings = {
+  all: "전체",
+  "south-america": "남아메리카",
+  "north-america": "북아메리카",
+  asia: "아시아",
+  africa: "아프리카",
+  oceania: "오세아니아",
+  europe: "유럽",
+};
+
 export default function Map() {
   const [nowContinent, setNowContinent] = useRecoilState(continentFilterState);
   const router = useRouter();
   const goToContinentPage = (e) => {
     const continent = e.currentTarget.getAttribute("value");
+    console.log(continent);
     router.push(`/continent/${continent}`);
-    setNowContinent(continent);
+    setNowContinent(filterMappings[continent]);
   };
   return (
     <>

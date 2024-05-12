@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import styles from "./CommentContainer.module.css";
 import DebateCommentSort from "../DebateCommentSort/DebateCommentSort";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 
-export default function CommentContainer({ debateInfo }) {
+export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
   const [comments, setComments] = useState([]);
   const [sortOrder, setSortOrder] = useState("RECENT");
   const [nowComment, setNowComment] = useState("");
@@ -92,8 +91,48 @@ export default function CommentContainer({ debateInfo }) {
     setEditingCommentId(commentId);
     setEditedComment(commentContent);
   };
-  const handleUpdateBtnClick = async (commentId) => {};
-  const handleCommentDelete = async (commentId) => {};
+  const handleUpdateBtnClick = async (commentId) => {
+    const accessToken = localStorage.getItem("accessToken");
+    try {
+      const response = await axios.patch(
+        `https://dev.jaeyun.shop/v1/debate-participations/${commentId}`,
+        {
+          content: editedComment,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      console.log(response);
+      getDebateComments();
+    } catch (error) {
+      console.log("댓글 수정 에러", error);
+    }
+    setEditingCommentId(null);
+    setEditedComment("");
+  };
+  const handleCommentDelete = async (commentId) => {
+    const accessToken = localStorage.getItem("accessToken");
+    try {
+      const response = await axios.delete(
+        `https://dev.jaeyun.shop/v1/debate-participations/${commentId}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      console.log(response);
+      getDebateComments();
+      getDebateDetailPage();
+    } catch (error) {
+      console.log("댓글 삭제 에러", error);
+    }
+  };
   const handleCommentLike = async (commentId) => {};
   const handleCommentLikeDelete = async (commentId) => {};
   const handleKeyDown = (e) => {

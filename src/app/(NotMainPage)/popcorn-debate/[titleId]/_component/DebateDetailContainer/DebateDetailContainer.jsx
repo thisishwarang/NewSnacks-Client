@@ -13,14 +13,13 @@ export default function DebateDetailContainer({ params }) {
   }, []);
 
   const getDebateDetailPage = async () => {
-    const accessToken = localStorage.getItem("accessToken");
+    console.log("getDebate 실행");
     try {
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/debates/${params.titleId}`,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
@@ -66,7 +65,10 @@ export default function DebateDetailContainer({ params }) {
         // onVote={() => getDebateDetailPage()}
         getDebateDetailPage={getDebateDetailPage}
       />
-      <CommentContainer debateInfo={debateInfo} />
+      <CommentContainer
+        debateInfo={debateInfo}
+        getDebateDetailPage={getDebateDetailPage}
+      />
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function DebateInfo({ debateInfo }) {
   return (
     <section className={styles.container}>
       <div className={styles.section4Left}>
-        <div className={styles.titleDate}>2024년 4월 2주 주제</div>
+        <div className={styles.titleDate}>2024년 5월 3주 주제</div>
         <div className={styles.debateTitle}>{debateInfo.title}</div>
         {/* <section className={styles.debateParagraph}>
           <p>{debateInfo.content}</p>

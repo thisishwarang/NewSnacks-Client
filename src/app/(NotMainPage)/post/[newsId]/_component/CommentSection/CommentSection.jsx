@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./CommentSection.module.css";
 import axios from "axios";
 import CommentSort from "../CommentSort/CommentSort";
@@ -25,7 +25,6 @@ export default function CommentSection({ articleId }) {
     try {
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/articles/${articleId}/comments?order=${sortOrder}`,
-        // "/data/comments.json",
         {
           headers: {
             "Content-Type": "application/json",
@@ -258,7 +257,7 @@ export default function CommentSection({ articleId }) {
                           </button>
                         </div>
                       ) : (
-                        ""
+                        <div></div>
                       )}
                       <div className={styles.likeBox}>
                         {comment.isLikedByMe ? (

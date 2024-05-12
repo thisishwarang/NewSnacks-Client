@@ -10,7 +10,7 @@ export default function VoteSection({ debateInfo, getDebateDetailPage }) {
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
 
-  const postVoteResult = async () => {
+  const postVoteResult = async (vote) => {
     const accessToken = localStorage.getItem("accessToken");
     if (!accessToken) {
       const shouldLogin = window.confirm(
@@ -21,34 +21,30 @@ export default function VoteSection({ debateInfo, getDebateDetailPage }) {
       }
       return;
     } else {
-      if (debateInfo.vote) {
-        alert("이미 투표를 하셨네요?\n투표는 한번만 가능합니다ㅠ");
-      } else {
-        const realVote = window.confirm(
-          "투표 기회는 딱 한 번뿐! 정말 투표하시겠어요?"
-        );
-        if (realVote) {
-          try {
-            const response = await axios.post(
-              `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/votes`,
-              {
-                vote: voteResult,
+      const realVote = window.confirm(
+        "투표 기회는 딱 한 번뿐! 정말 투표하시겠어요?"
+      );
+      if (realVote) {
+        try {
+          const response = await axios.post(
+            `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/votes`,
+            {
+              vote: vote,
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
               },
-              {
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${accessToken}`,
-                },
-              }
-            );
-            console.log(response);
-            getDebateDetailPage();
-          } catch (error) {
-            // if (error.response.data.status === 404) {
-            //   alert("이미 투표를 하셨네요?\n투표는 한번만 가능합니다ㅠ");
-            // }
-            console.log("투표에러", error);
+            }
+          );
+          console.log(response);
+          getDebateDetailPage();
+        } catch (error) {
+          if (error.response.data.status === 409) {
+            alert("이미 투표를 하셨네요?\n투표는 한번만 가능합니다ㅠ");
           }
+          console.log("투표에러", error);
         }
       }
     }
@@ -66,12 +62,14 @@ export default function VoteSection({ debateInfo, getDebateDetailPage }) {
   const handleDrop = () => {
     if (draggedOver) {
       console.log(`팝콘이 ${draggedOver} 박스로 들어갔습니다.`);
-      draggedOver === "pro" ? setVoteResult(true) : setVoteResult(false);
-      postVoteResult();
+      const result = draggedOver === "pro" ? true : false;
+      setVoteResult(result); // voteResult 값을 업데이트
+      console.log(result); // 업데이트된 값을 확인
+      postVoteResult(result);
     }
     setDraggedOver(null);
   };
-
+  console.log(voteResult);
   return (
     <div>
       <div className={styles.voteContainer}>

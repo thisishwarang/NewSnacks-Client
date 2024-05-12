@@ -1,8 +1,9 @@
 .navbarVisible {
   position: fixed;
   width: 100dvw;
-  height: 4rem;
+  /* height: 4rem; */
   flex-shrink: 0;
+  padding: 0.6rem 0;
   background: rgba(255, 255, 255, 0.8);
   display: flex;
   justify-content: space-between;
@@ -72,14 +73,15 @@
 }
 .loginButton {
   color: #000;
-  text-align: right;
+  text-align: center;
+  vertical-align: center;
   font-family: -apple-system, YEONGJUPunggiGinseng, Noto_Sans_KR;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 500;
   line-height: 2.5rem;
   margin-right: 1.875rem;
-  margin-top: 0.15rem;
+  /* margin-top: 0.15rem; */
   cursor: pointer;
 }
 

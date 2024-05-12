@@ -117,7 +117,6 @@ export default function NewsDetailPage({ params }) {
   }
   const summarys = newsInfo.summary ? newsInfo.summary.split("\n") : null;
   const paragraphs = newsInfo.body ? newsInfo.body.split("\n") : null;
-
   console.log("news-isLiked", newsInfo.isLiked);
   return (
     <div className={styles.container}>

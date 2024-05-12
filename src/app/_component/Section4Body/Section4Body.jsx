@@ -60,7 +60,7 @@ export default function Section4Body() {
   return (
     <div className={styles.container}>
       <div className={styles.section4Left}>
-        <div className={styles.titleDate}>2024년 4월 2주 주제</div>
+        <div className={styles.titleDate}>2024년 5월 3주 주제</div>
         <div className={styles.debateTitle}>{thisWeekPopcornDebate.title}</div>
         <section className={styles.prosAndConsSection}>
           <DebatebarSection

@@ -25,12 +25,12 @@
   width: 33rem;
   /* height: 15rem; */
   font-size: 1.25rem;
-  margin-top: 1.68rem;
+  margin-top: 0.2rem;
   line-height: 1.81rem;
   font-weight: 400;
-  background-color: aqua;
 }
-/* .emptySummarySpace {
-  width: inherit;
-  height: 1rem;
-} */
+.br {
+  height: 0.7rem; /* 원하는 높이로 설정 */
+  display: block; /* 높이를 지정하기 위해 블록 요소로 변경 */
+  content: ""; /* 내용 없음 */
+}

@@ -33,9 +33,18 @@ export default function Home() {
       resetFilterState();
     }
   }, [pathname]);
+  const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <MainPageNavbar targetRefs={targetRefs} />
+      <button className={styles.topBtn} onClick={scrollToTop}>
+        <img src="/탑버튼.svg" alt="탑버튼" />
+      </button>
       <main className={styles.container}>
         <section
           ref={section1Ref}

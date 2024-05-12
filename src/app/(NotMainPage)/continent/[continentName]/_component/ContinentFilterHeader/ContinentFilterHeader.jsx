@@ -17,7 +17,9 @@ export default function ContinentFilterHeader({
   onFilterChange,
 }) {
   const router = useRouter();
+  console.log(filter);
   const handleFilterChange = (value) => {
+    console.log(value);
     onFilterChange(value);
     router.push(`/continent/${filterMappings[value]}`);
   };

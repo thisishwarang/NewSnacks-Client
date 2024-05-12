@@ -23,6 +23,7 @@ export default function Section2Right(props) {
   const summarys = hoveredNews.summary
     ? hoveredNews.summary.split("\n").slice(0, -1)
     : null;
+  console.log(summarys);
   return (
     <div className={`${styles.container} ${isVisible ? styles.visible : ""}`}>
       <div className={styles.imgContainer}>
@@ -42,10 +43,11 @@ export default function Section2Right(props) {
           <div>
             {summarys.map((summary, index) => (
               <div key={index}>
-                <p>{summary}</p>
-                <span className={styles.emptySummarySpace}></span>
+                <br className={styles.br} />
+                <p className={styles.summaryP}>{summary}</p>
               </div>
             ))}
+            &hellip;
           </div>
         ) : null}
       </div>

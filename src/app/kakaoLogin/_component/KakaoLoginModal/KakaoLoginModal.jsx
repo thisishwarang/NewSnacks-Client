@@ -34,7 +34,7 @@ export default function KakaoLoginModal() {
       );
       console.log("로그인결과", response.data.data.accessToken);
       localStorage.setItem("accessToken", response.data.data.accessToken);
-      router.back();
+      router.push("/");
     } catch (error) {
       console.log("error", error);
     }

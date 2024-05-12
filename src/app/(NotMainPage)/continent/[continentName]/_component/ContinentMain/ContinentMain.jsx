@@ -15,6 +15,7 @@ const continentFilters = [
   "유럽",
 ];
 export default function ContinentMain({ params }) {
+  console.log(params);
   const [continentFilter, setContinentFilter] =
     useRecoilState(continentFilterState);
   return (
