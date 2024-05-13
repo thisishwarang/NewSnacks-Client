@@ -1,8 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import styles from "./Post.module.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Image from "next/image";
 
 const categoryMappings = {

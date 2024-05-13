@@ -15,7 +15,7 @@ export default function MyComments() {
     let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
-        "https://dev.jaeyun.shop/v1/members/me/comments",
+        `${process.env.NEXT_PUBLIC_BASE_URL}/members/me/comments`,
         {
           headers: {
             "Content-Type": "application/json",

@@ -18,7 +18,7 @@ export default function Section2Body() {
     const getThisWeekNews = async () => {
       try {
         const response = await axios.get(
-          "https://dev.jaeyun.shop/v1/articles/main",
+          `${process.env.NEXT_PUBLIC_BASE_URL}/articles/main`,
           {
             headers: {
               "Content-Type": "application/json",

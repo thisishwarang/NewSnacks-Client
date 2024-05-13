@@ -15,7 +15,7 @@ export default function LikedPosts() {
     let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/members/me/liked-articles`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/members/me/liked-articles`,
         {
           headers: {
             "Content-Type": "application/json",

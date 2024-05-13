@@ -36,7 +36,7 @@ export default function NewsDetailPage({ params }) {
       }
 
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/articles/${newsId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/articles/${newsId}`,
         {
           headers: headers,
         }
@@ -54,7 +54,7 @@ export default function NewsDetailPage({ params }) {
     if (accessToken) {
       try {
         const response = await axios.post(
-          `https://dev.jaeyun.shop/v1/articles/${newsId}/likes`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/articles/${newsId}/likes`,
           null,
           {
             headers: {
@@ -76,7 +76,7 @@ export default function NewsDetailPage({ params }) {
     let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.delete(
-        `https://dev.jaeyun.shop/v1/articles/${newsId}/likes`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/articles/${newsId}/likes`,
         {
           headers: {
             "Content-Type": "application/json",

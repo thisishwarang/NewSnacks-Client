@@ -21,7 +21,7 @@ export default function KakaoLoginModal() {
       setAccessTokenFetching(true);
       console.log("try실행됨");
       const response = await axios.post(
-        "https://dev.jaeyun.shop/v1/auth/login",
+        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`,
         {
           provider: "KAKAO",
         },

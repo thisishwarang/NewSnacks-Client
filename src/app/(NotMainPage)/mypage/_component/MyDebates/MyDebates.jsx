@@ -16,7 +16,7 @@ export default function MyDebates() {
     const accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/members/me/participated-debates`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/members/me/participated-debates`,
         {
           headers: {
             "Content-Type": "application/json",

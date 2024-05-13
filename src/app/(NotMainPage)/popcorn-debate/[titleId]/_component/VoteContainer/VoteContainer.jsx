@@ -2,7 +2,6 @@
 import DebatebarSection from "@/app/_component/DebateBarSection/DebatebarSection";
 import styles from "./VoteContainer.module.css";
 import VoteSection from "./_component/VoteSection/VoteSection";
-import { useState } from "react";
 
 export default function VoteContainer({ debateInfo, getDebateDetailPage }) {
   return (

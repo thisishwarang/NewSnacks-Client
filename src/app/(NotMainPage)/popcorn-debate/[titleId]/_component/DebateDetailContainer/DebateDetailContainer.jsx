@@ -16,7 +16,7 @@ export default function DebateDetailContainer({ params }) {
     console.log("getDebate 실행");
     try {
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/debates/${params.titleId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/debates/${params.titleId}`,
         {
           headers: {
             "Content-Type": "application/json",

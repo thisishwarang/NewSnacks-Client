@@ -31,7 +31,7 @@ export default function CommentSection({ articleId }) {
         headers.Authorization = `Bearer ${accessToken}`;
       }
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/articles/${articleId}/comments?order=${sortOrder}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/articles/${articleId}/comments?order=${sortOrder}`,
         {
           headers: headers,
         }
@@ -67,7 +67,7 @@ export default function CommentSection({ articleId }) {
     }
     try {
       const response = await axios.post(
-        `https://dev.jaeyun.shop/v1/articles/${articleId}/comments`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/articles/${articleId}/comments`,
         {
           content: nowComment,
         },
@@ -96,7 +96,7 @@ export default function CommentSection({ articleId }) {
     let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.patch(
-        `https://dev.jaeyun.shop/v1/comments/${commentId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}`,
         {
           content: editedComment,
         },
@@ -122,7 +122,7 @@ export default function CommentSection({ articleId }) {
     if (deleteCheck) {
       try {
         const response = await axios.delete(
-          `https://dev.jaeyun.shop/v1/comments/${commentId}`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -151,7 +151,7 @@ export default function CommentSection({ articleId }) {
     }
     try {
       const response = await axios.post(
-        `https://dev.jaeyun.shop/v1/comments/${commentId}/likes`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}/likes`,
         null,
         {
           headers: {
@@ -171,7 +171,7 @@ export default function CommentSection({ articleId }) {
     let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.delete(
-        `https://dev.jaeyun.shop/v1/comments/${commentId}/likes`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/comments/${commentId}/likes`,
         {
           headers: {
             "Content-Type": "application/json",

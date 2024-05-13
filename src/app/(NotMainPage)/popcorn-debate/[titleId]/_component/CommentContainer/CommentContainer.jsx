@@ -26,7 +26,7 @@ export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
         headers.Authorization = `Bearer ${accessToken}`;
       }
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/comments?order=${sortOrder}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/debates/${debateInfo.debateId}/comments?order=${sortOrder}`,
         {
           headers: headers,
         }
@@ -65,7 +65,7 @@ export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
     }
     try {
       const response = await axios.post(
-        `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/comments`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/debates/${debateInfo.debateId}/comments`,
         {
           content: nowComment,
         },
@@ -97,7 +97,7 @@ export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
     const accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.patch(
-        `https://dev.jaeyun.shop/v1/debate-participations/${commentId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/debate-participations/${commentId}`,
         {
           content: editedComment,
         },
@@ -120,7 +120,7 @@ export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
     const accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.delete(
-        `https://dev.jaeyun.shop/v1/debate-participations/${commentId}`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}/debate-participations/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",

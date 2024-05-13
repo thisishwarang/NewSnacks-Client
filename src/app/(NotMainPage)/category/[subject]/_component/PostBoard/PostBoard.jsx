@@ -37,9 +37,9 @@ export default function PostBoard({ filter }) {
     try {
       let requestURL;
       if (sectionCategoryMappings.hasOwnProperty(filter)) {
-        requestURL = `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&sectionCategory=${sectionCategoryMappings[filter]}&page=${page}`;
+        requestURL = `${process.env.NEXT_PUBLIC_BASE_URL}/articles?order=${sortOrder}&sectionCategory=${sectionCategoryMappings[filter]}&page=${page}`;
       } else if (locationCategoryMappings.hasOwnProperty(filter)) {
-        requestURL = `https://dev.jaeyun.shop/v1/articles?order=${sortOrder}&locationCategory=${locationCategoryMappings[filter]}&page=${page}`;
+        requestURL = `${process.env.NEXT_PUBLIC_BASE_URL}/articles?order=${sortOrder}&locationCategory=${locationCategoryMappings[filter]}&page=${page}`;
       } else {
         console.error("유효하지 않은 filter 값입니다.");
         return [];

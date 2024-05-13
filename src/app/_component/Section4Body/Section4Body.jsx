@@ -21,7 +21,7 @@ export default function Section4Body() {
           headers.Authorization = `Bearer ${accessToken}`;
         }
         const response = await axios.get(
-          "https://dev.jaeyun.shop/v1/debates/main",
+          `${process.env.NEXT_PUBLIC_BASE_URL}/debates/main`,
           {
             headers: headers,
           }

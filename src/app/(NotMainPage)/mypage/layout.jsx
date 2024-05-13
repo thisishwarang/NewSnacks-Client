@@ -29,7 +29,7 @@ export default function Layout({ children }) {
     }
     try {
       const response = await axios.get(
-        "https://dev.jaeyun.shop/v1/members/me",
+        `${process.env.NEXT_PUBLIC_BASE_URL}/members/me`,
         {
           headers: {
             "Content-Type": "application/json",

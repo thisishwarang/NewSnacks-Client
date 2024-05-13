@@ -27,7 +27,7 @@ export default function VoteSection({ debateInfo, getDebateDetailPage }) {
       if (realVote) {
         try {
           const response = await axios.post(
-            `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/votes`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/debates/${debateInfo.debateId}/votes`,
             {
               vote: vote,
             },
