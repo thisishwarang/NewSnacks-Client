@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./DebateInfo.module.css";
 import Post from "@/app/(NotMainPage)/_component/Post/Post";
 
-export default function DebateInfo({ debateInfo }) {
+const DebateInfo = ({ debateInfo }) => {
   return (
     <section className={styles.container}>
       <div className={styles.section4Left}>
@@ -21,4 +21,5 @@ export default function DebateInfo({ debateInfo }) {
       </div>
     </section>
   );
-}
+};
+export default DebateInfo;

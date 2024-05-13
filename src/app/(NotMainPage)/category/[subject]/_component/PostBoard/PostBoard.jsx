@@ -23,7 +23,7 @@ const locationCategoryMappings = {
   오세아니아: "OCEANIA",
   유럽: "EUROPE",
 };
-export default function PostBoard({ filter }) {
+const PostBoard = ({ filter }) => {
   console.log("postboard", filter);
   const [sortOrder, setSortOrder] = useState("RECENT");
   const [articles, setArticles] = useState([]);
@@ -108,4 +108,5 @@ export default function PostBoard({ filter }) {
       </div>
     </div>
   );
-}
+};
+export default PostBoard;

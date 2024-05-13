@@ -11,7 +11,7 @@ const filterMappings = {
   정치: "politics",
   기술: "technology",
 };
-export default function FilterHeader({ filter, filters, onFilterChange }) {
+const FilterHeader = ({ filter, filters, onFilterChange }) => {
   const router = useRouter();
   const handleFilterChange = (value) => {
     onFilterChange(value);
@@ -38,4 +38,5 @@ export default function FilterHeader({ filter, filters, onFilterChange }) {
       </ul>
     </header>
   );
-}
+};
+export default FilterHeader;

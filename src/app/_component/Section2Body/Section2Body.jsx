@@ -6,7 +6,7 @@ import styles from "./Section2Body.module.css";
 import axios from "axios";
 import MobileSection2Body from "./MobileSection2Body/MobileSection2Body";
 
-export default function Section2Body() {
+ const Section2Body = () => {
   const [thisWeekNews, setThisWeekNews] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredId, setHoveredId] = useState(0);
@@ -55,3 +55,4 @@ export default function Section2Body() {
     </div>
   );
 }
+export default Section2Body

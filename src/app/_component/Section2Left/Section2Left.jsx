@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import styles from "./Section2Left.module.css";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-export default function Section2Left(props) {
+
+ const Section2Left = (props) => {
   let { onHoverChange, setHoveredId, thisWeekNews } = props;
   const [news, setNews] = useState([]);
   const [hover, setHover] = useState(false);
@@ -43,3 +44,4 @@ export default function Section2Left(props) {
     </div>
   );
 }
+export default Section2Left

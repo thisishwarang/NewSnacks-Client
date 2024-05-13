@@ -1,5 +1,5 @@
 import styles from "./SurveyPost.module.css";
-export default function SurveyPost({ tastePost }) {
+const SurveyPost = ({ tastePost }) => {
   return (
     <div className={styles.post}>
       <div className={styles.postHashtag}>#{tastePost.hashtag}</div>
@@ -7,4 +7,5 @@ export default function SurveyPost({ tastePost }) {
       <div className={styles.postText}>{tastePost.text}</div>
     </div>
   );
-}
+};
+export default SurveyPost;

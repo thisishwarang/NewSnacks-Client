@@ -11,7 +11,7 @@ const categoryMappings = {
   TECHNOLOGY: "기술",
 };
 
-export default function Post({ article }) {
+ const Post = ({ article }) => {
   const router = useRouter();
   if (!article) {
     return <div>Loading...</div>;
@@ -43,3 +43,4 @@ export default function Post({ article }) {
     </div>
   );
 }
+export default Post

@@ -13,7 +13,7 @@ const filterMappings = {
   europe: "유럽",
 };
 
-export default function Map() {
+const Map = () => {
   const [nowContinent, setNowContinent] = useRecoilState(continentFilterState);
   const router = useRouter();
   const goToContinentPage = (e) => {
@@ -1216,4 +1216,5 @@ export default function Map() {
       </div>
     </>
   );
-}
+};
+export default Map;

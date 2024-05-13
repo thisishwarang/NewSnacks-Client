@@ -1,6 +1,6 @@
 import styles from "./DebateBar.module.css";
 
-export default function DebateBar({ forVotes, againstVotes }) {
+ const DebateBar = ({ forVotes, againstVotes }) => {
   const totalVotes = forVotes + againstVotes;
 
   const forRatio =
@@ -50,3 +50,5 @@ export default function DebateBar({ forVotes, againstVotes }) {
     </div>
   );
 }
+
+export default DebateBar

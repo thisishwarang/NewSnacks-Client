@@ -4,7 +4,7 @@ import styles from "./LikedPosts.module.css";
 import axios from "axios";
 import Post from "@/app/(NotMainPage)/_component/Post/Post";
 
-export default function LikedPosts() {
+ const LikedPosts = () => {
   const [likedPosts, setLikedPosts] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
@@ -69,3 +69,4 @@ export default function LikedPosts() {
     </div>
   );
 }
+export default LikedPosts

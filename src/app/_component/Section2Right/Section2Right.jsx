@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./Section2Right.module.css";
 import { useState, useEffect } from "react";
 
-export default function Section2Right(props) {
+ const Section2Right = (props) => {
   let { isHovered, hoveredId, thisWeekNews } = props;
   const [news, setNews] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
@@ -54,3 +54,4 @@ export default function Section2Right(props) {
     </div>
   );
 }
+export default Section2Right

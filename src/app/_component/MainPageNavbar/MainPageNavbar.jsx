@@ -7,7 +7,7 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { useRouter } from "next/navigation";
 // import { useRef } from "react";
 
-export default function MainPageNavbar({ targetRefs }) {
+const MainPageNavbar = ({ targetRefs }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -138,4 +138,5 @@ export default function MainPageNavbar({ targetRefs }) {
       {menuOpen && <HamburgerMenu />}
     </nav>
   );
-}
+};
+export default MainPageNavbar;

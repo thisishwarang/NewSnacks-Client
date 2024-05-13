@@ -4,7 +4,7 @@ import styles from "./MyComments.module.css";
 import axios from "axios";
 import MyComment from "./MyComment/MyComment";
 
-export default function MyComments() {
+const MyComments = () => {
   const [comments, setComments] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
@@ -49,4 +49,5 @@ export default function MyComments() {
       </div>
     </div>
   );
-}
+};
+export default MyComments;

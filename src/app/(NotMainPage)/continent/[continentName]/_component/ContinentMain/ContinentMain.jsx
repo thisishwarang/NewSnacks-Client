@@ -14,7 +14,7 @@ const continentFilters = [
   "오세아니아",
   "유럽",
 ];
-export default function ContinentMain({ params }) {
+const ContinentMain = ({ params }) => {
   console.log(params);
   const [continentFilter, setContinentFilter] =
     useRecoilState(continentFilterState);
@@ -28,4 +28,5 @@ export default function ContinentMain({ params }) {
       <PostBoard filter={continentFilter} />
     </main>
   );
-}
+};
+export default ContinentMain;

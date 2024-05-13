@@ -1,5 +1,6 @@
 import SurveyPage from "./_component/SurveyPage/SurveyPage";
 
-export default function page() {
+const page = () => {
   return <SurveyPage />;
-}
+};
+export default page;

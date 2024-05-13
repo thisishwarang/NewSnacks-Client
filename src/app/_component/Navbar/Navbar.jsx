@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { useRouter } from "next/navigation";
 
-export default function Navbar() {
+ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
   const hamburgerRef = useRef(null);
@@ -117,3 +117,4 @@ export default function Navbar() {
     </nav>
   );
 }
+export default Navbar

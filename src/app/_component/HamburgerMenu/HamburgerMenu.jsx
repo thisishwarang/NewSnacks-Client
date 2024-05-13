@@ -1,7 +1,7 @@
 import Button from "./Button/Button";
 import styles from "./HamburgerMenu.module.css";
 
-export default function HamburgerMenu() {
+const HamburgerMenu = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navMenu}>
@@ -16,4 +16,5 @@ export default function HamburgerMenu() {
       </div>
     </div>
   );
-}
+};
+export default HamburgerMenu;

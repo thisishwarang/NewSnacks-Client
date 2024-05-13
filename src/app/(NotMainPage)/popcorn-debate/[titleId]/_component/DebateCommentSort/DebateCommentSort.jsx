@@ -1,6 +1,6 @@
 import styles from "./DebateCommentSort.module.css";
 
-export default function DebateCommentSort({ sortOrder, onSortChange }) {
+const DebateCommentSort = ({ sortOrder, onSortChange }) => {
   return (
     <div className={styles.sortingBox}>
       <button
@@ -21,4 +21,5 @@ export default function DebateCommentSort({ sortOrder, onSortChange }) {
       </button>
     </div>
   );
-}
+};
+export default DebateCommentSort;

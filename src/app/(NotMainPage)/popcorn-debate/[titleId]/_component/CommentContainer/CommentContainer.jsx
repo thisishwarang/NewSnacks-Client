@@ -4,7 +4,7 @@ import styles from "./CommentContainer.module.css";
 import DebateCommentSort from "../DebateCommentSort/DebateCommentSort";
 import axios from "axios";
 
-export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
+const CommentContainer = ({ debateInfo, getDebateDetailPage }) => {
   const [comments, setComments] = useState([]);
   const [sortOrder, setSortOrder] = useState("RECENT");
   const [nowComment, setNowComment] = useState("");
@@ -249,4 +249,5 @@ export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
       </div>
     </section>
   );
-}
+};
+export default CommentContainer;

@@ -1,5 +1,6 @@
 import Main from "./_component/Main/Main";
 
-export default function Page(params) {
+const Page = (params) => {
   return <Main params={params} />;
-}
+};
+export default Page;

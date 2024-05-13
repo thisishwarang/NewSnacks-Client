@@ -1,7 +1,8 @@
 "use client";
 import styles from "./MyComment.module.css";
 import { useRouter } from "next/navigation";
-export default function MyComment({ comment }) {
+
+ const MyComment = ({ comment }) => {
   const router = useRouter();
   const handleClick = () => {
     router.push(`/post/${comment.articleId}`);
@@ -13,3 +14,4 @@ export default function MyComment({ comment }) {
     </div>
   );
 }
+export default MyComment

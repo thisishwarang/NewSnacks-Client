@@ -1,7 +1,7 @@
 "use client";
 import styles from "./SortAndSearch.module.css";
 
-export default function SortAndSearch({ sortOrder, onSortChange }) {
+const SortAndSearch = ({ sortOrder, onSortChange }) => {
   return (
     <div className={styles.sortAndSearch}>
       <div className={styles.sortButtons}>
@@ -34,4 +34,5 @@ export default function SortAndSearch({ sortOrder, onSortChange }) {
       </div>
     </div>
   );
-}
+};
+export default SortAndSearch;

@@ -4,7 +4,7 @@ import styles from "./CommentSection.module.css";
 import axios from "axios";
 import CommentSort from "../CommentSort/CommentSort";
 
-export default function CommentSection({ articleId }) {
+const CommentSection = ({ articleId }) => {
   const [comments, setComments] = useState([]);
   const [sortOrder, setSortOrder] = useState("RECENT");
   const [nowComment, setNowComment] = useState("");
@@ -300,4 +300,5 @@ export default function CommentSection({ articleId }) {
       </div>
     </section>
   );
-}
+};
+export default CommentSection;

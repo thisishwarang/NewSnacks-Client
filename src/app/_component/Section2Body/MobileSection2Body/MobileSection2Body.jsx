@@ -4,7 +4,7 @@ import styles from "./MobileSection2Body.module.css";
 import Post from "@/app/(NotMainPage)/_component/Post/Post";
 import Button from "../../HamburgerMenu/Button/Button";
 
-export default function MobileSection2Body({ thisWeekNews }) {
+ const MobileSection2Body = ({ thisWeekNews }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
   let news = thisWeekNews.data;
@@ -28,3 +28,4 @@ export default function MobileSection2Body({ thisWeekNews }) {
     </div>
   );
 }
+export default MobileSection2Body

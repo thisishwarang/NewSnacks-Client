@@ -6,7 +6,7 @@ import styles from "./Main.module.css";
 import { categoryFilterState } from "@/app/_component/recoil/categoryFilterState";
 
 const filters = ["전체", "예술", "환경", "경제", "정치", "기술"];
-export default function Main({ params }) {
+const Main = ({ params }) => {
   const [filter, setFilter] = useRecoilState(categoryFilterState);
 
   return (
@@ -19,4 +19,5 @@ export default function Main({ params }) {
       <PostBoard filter={filter} />
     </main>
   );
-}
+};
+export default Main;

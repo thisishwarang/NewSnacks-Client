@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { surveyResultState } from "@/app/_component/recoil/surveyResultState";
 
-export default function SurveyPage() {
+const SurveyPage = () => {
   // 질문과 선택지 배열
   const questions = [
     {
@@ -128,4 +128,5 @@ export default function SurveyPage() {
       )}
     </section>
   );
-}
+};
+export default SurveyPage;

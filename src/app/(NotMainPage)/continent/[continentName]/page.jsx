@@ -1,5 +1,6 @@
 import ContinentMain from "./_component/ContinentMain/ContinentMain";
 
-export default function Page({ params }) {
+const Page = ({ params }) => {
   return <ContinentMain params={params} />;
-}
+};
+export default Page;

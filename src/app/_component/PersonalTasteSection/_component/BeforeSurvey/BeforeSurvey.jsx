@@ -1,7 +1,7 @@
 import styles from "./BeforeSurvey.module.css";
 import Link from "next/link";
 
-export default function BeforeSurvey() {
+ const BeforeSurvey = () => {
   return (
     <div className={styles.beforeSurvey}>
       <div className={styles.firstDiv}>뉴스낵스 보기 전에,</div>
@@ -12,3 +12,5 @@ export default function BeforeSurvey() {
     </div>
   );
 }
+
+export default BeforeSurvey

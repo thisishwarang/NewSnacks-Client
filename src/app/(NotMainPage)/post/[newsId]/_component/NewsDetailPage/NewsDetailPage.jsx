@@ -14,7 +14,7 @@ const categoryMappings = {
   TECHNOLOGY: "기술",
 };
 
-export default function NewsDetailPage({ params }) {
+const NewsDetailPage = ({ params }) => {
   const [newsInfo, setNewsInfo] = useState();
   const param = useParams();
   console.log(param);
@@ -193,4 +193,5 @@ export default function NewsDetailPage({ params }) {
       </section>
     </div>
   );
-}
+};
+export default NewsDetailPage;

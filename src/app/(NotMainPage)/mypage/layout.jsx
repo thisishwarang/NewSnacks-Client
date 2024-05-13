@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   const [username, setUsername] = useState("");
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
@@ -52,4 +52,5 @@ export default function Layout({ children }) {
       {children}
     </div>
   );
-}
+};
+export default Layout;

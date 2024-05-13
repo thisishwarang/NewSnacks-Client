@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import DebateBar from "../DebateBar/DebateBar";
 import styles from "./DebatebarSection.module.css";
 
-export default function DebatebarSection({ agreeCount, disagreeCount }) {
+ const DebatebarSection = ({ agreeCount, disagreeCount }) => {
   const [forVotes, setForVotes] = useState(0);
   const [againstVotes, setAgainstVotes] = useState(0);
   useEffect(() => {
@@ -21,3 +21,4 @@ export default function DebatebarSection({ agreeCount, disagreeCount }) {
     </>
   );
 }
+export default DebatebarSection

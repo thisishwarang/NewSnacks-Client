@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./VoteSection.module.css";
 import axios from "axios";
 
-export default function VoteSection({ debateInfo, getDebateDetailPage }) {
+const VoteSection = ({ debateInfo, getDebateDetailPage }) => {
   const [draggedOver, setDraggedOver] = useState(null);
   const [voteResult, setVoteResult] = useState(null);
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
@@ -108,4 +108,5 @@ export default function VoteSection({ debateInfo, getDebateDetailPage }) {
       </div>
     </div>
   );
-}
+};
+export default VoteSection;

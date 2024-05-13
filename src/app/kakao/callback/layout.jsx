@@ -1,3 +1,4 @@
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   return <>{children}</>;
-}
+};
+export default Layout;

@@ -12,7 +12,7 @@ import Section4Body from "./Section4Body/Section4Body";
 import { categoryFilterState } from "./recoil/categoryFilterState";
 import PersonalTasteSection from "../_component/PersonalTasteSection/PersonalTasteSection";
 
-export default function Home() {
+const Home = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
   const section3Ref = useRef(null);
@@ -123,4 +123,5 @@ export default function Home() {
       </main>
     </>
   );
-}
+};
+export default Home;

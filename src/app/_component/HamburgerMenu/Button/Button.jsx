@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import styles from "./Button.module.css";
-export default function Button({ text, route }) {
+ const Button = ({ text, route }) => {
   console.log(route);
   const router = useRouter();
   const handleRoute = () => {
@@ -13,3 +13,5 @@ export default function Button({ text, route }) {
     </div>
   );
 }
+
+export default Button

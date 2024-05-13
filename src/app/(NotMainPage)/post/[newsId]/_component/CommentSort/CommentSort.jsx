@@ -1,6 +1,6 @@
 import styles from "./CommentSort.module.css";
 
-export default function CommentSort({ sortOrder, onSortChange }) {
+const CommentSort = ({ sortOrder, onSortChange }) => {
   return (
     <div className={styles.sortingBox}>
       <button
@@ -21,4 +21,5 @@ export default function CommentSort({ sortOrder, onSortChange }) {
       </button>
     </div>
   );
-}
+};
+export default CommentSort;

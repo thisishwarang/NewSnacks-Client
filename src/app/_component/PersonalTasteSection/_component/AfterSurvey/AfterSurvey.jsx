@@ -1,6 +1,6 @@
 import styles from "./AfterSurvey.module.css";
 
-export default function AfterSurvey() {
+ const AfterSurvey = () => {
   return (
     <div className={styles.afterSurvey}>
       <section className={styles.leftSection}>
@@ -52,3 +52,4 @@ function SurveyPost({ hashtag, imgSrc, alt, text }) {
     </div>
   );
 }
+export default AfterSurvey

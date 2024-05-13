@@ -4,7 +4,7 @@ import styles from "./MyDebates.module.css";
 import axios from "axios";
 import MyDebate from "./MyDebate/MyDebate";
 
-export default function MyDebates() {
+const MyDebates = () => {
   const [myDebates, setMyDebates] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
@@ -50,4 +50,5 @@ export default function MyDebates() {
       </div>
     </div>
   );
-}
+};
+export default MyDebates;

@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import styles from "./KakaoLoginModal.module.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-export default function KakaoLoginModal() {
+
+const KakaoLoginModal = () => {
   let AUTHORIZATION_CODE;
   if (typeof document !== "undefined") {
     AUTHORIZATION_CODE = new URL(document.location.toString()).searchParams.get(
@@ -45,4 +46,5 @@ export default function KakaoLoginModal() {
     }
   }, [AUTHORIZATION_CODE]);
   return <div>Loading...</div>;
-}
+};
+export default KakaoLoginModal;

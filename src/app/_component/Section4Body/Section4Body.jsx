@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
-export default function Section4Body() {
+ const Section4Body = () => {
   const [thisWeekPopcornDebate, setThisWeekPopcornDebate] = useState([]);
   useEffect(() => {
     const getThisWeekPopcornDebate = async () => {
@@ -92,3 +92,4 @@ export default function Section4Body() {
     </div>
   );
 }
+export default Section4Body

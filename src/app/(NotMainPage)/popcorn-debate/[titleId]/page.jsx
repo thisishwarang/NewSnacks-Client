@@ -1,5 +1,6 @@
 import DebateDetailContainer from "./_component/DebateDetailContainer/DebateDetailContainer";
 
-export default function page({ params }) {
+const page = ({ params }) => {
   return <DebateDetailContainer params={params} />;
-}
+};
+export default page;

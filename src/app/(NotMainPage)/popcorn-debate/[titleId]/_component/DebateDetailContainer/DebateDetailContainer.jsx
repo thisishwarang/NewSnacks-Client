@@ -6,7 +6,7 @@ import VoteContainer from "../VoteContainer/VoteContainer";
 import styles from "./DebateDetailContainer.module.css";
 import axios from "axios";
 
-export default function DebateDetailContainer({ params }) {
+const DebateDetailContainer = ({ params }) => {
   const [debateInfo, setDebateInfo] = useState();
   useEffect(() => {
     getDebateDetailPage();
@@ -71,4 +71,5 @@ export default function DebateDetailContainer({ params }) {
       />
     </div>
   );
-}
+};
+export default DebateDetailContainer;

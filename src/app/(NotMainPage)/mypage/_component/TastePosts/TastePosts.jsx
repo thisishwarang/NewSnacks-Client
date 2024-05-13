@@ -4,7 +4,7 @@ import styles from "./TastePosts.module.css";
 import axios from "axios";
 import SurveyPost from "./SurveyPost/SurveyPost";
 
-export default function TastePosts() {
+const TastePosts = () => {
   const [tastePosts, setTastePosts] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
@@ -41,4 +41,5 @@ export default function TastePosts() {
       </div>
     </div>
   );
-}
+};
+export default TastePosts;

@@ -11,11 +11,7 @@ const filterMappings = {
   오세아니아: "oceania",
   유럽: "europe",
 };
-export default function ContinentFilterHeader({
-  filter,
-  filters,
-  onFilterChange,
-}) {
+const ContinentFilterHeader = ({ filter, filters, onFilterChange }) => {
   const router = useRouter();
   console.log(filter);
   const handleFilterChange = (value) => {
@@ -44,4 +40,5 @@ export default function ContinentFilterHeader({
       </ul>
     </header>
   );
-}
+};
+export default ContinentFilterHeader;

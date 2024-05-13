@@ -1,5 +1,5 @@
 import styles from "./SectionHeader.module.css";
-export default function SectionHeader(props) {
+ const SectionHeader =(props) => {
   return (
     <header className={styles.header}>
       <span>{props.span}</span>
@@ -13,3 +13,5 @@ export default function SectionHeader(props) {
     </header>
   );
 }
+
+export default SectionHeader

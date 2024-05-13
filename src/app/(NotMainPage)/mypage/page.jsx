@@ -3,7 +3,7 @@ import MyComments from "./_component/MyComments/MyComments";
 import MyDebates from "./_component/MyDebates/MyDebates";
 import TastePosts from "./_component/TastePosts/TastePosts";
 
-export default function page() {
+const page = () => {
   return (
     <>
       <TastePosts />
@@ -12,4 +12,5 @@ export default function page() {
       <MyComments />
     </>
   );
-}
+};
+export default page;

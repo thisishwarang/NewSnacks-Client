@@ -1,5 +1,5 @@
 import styles from "./TitleAndPopcornHeader.module.css";
-export default function TitleAndPopcornHeader({ span }) {
+ const TitleAndPopcornHeader =({ span }) => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -11,3 +11,4 @@ export default function TitleAndPopcornHeader({ span }) {
     </header>
   );
 }
+export default TitleAndPopcornHeader

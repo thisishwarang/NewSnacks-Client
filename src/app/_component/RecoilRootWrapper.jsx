@@ -3,6 +3,7 @@
 import { RecoilRoot } from "recoil";
 import React from "react";
 
-export default function RecoilRootWrapper({ children }) {
+const RecoilRootWrapper = ({ children }) => {
   return <RecoilRoot>{children}</RecoilRoot>;
-}
+};
+export default RecoilRootWrapper;

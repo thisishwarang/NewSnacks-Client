@@ -1,6 +1,6 @@
 import TitleAndPopcornHeader from "@/app/_component/TitleAndPopcornHeader/TitleAndPopcornHeader";
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
     <div
       style={{
@@ -11,4 +11,5 @@ export default function Layout({ children }) {
       {children}
     </div>
   );
-}
+};
+export default Layout;
