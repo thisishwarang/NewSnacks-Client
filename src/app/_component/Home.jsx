@@ -43,7 +43,7 @@ const Home = () => {
     <>
       <MainPageNavbar targetRefs={targetRefs} />
       <button className={styles.topBtn} onClick={scrollToTop}>
-        <img src="/탑버튼.svg" alt="탑버튼" />
+        {/* <img src="/탑버튼.svg" alt="탑버튼" /> */}
       </button>
       <main className={styles.container}>
         <section

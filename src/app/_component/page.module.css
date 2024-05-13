@@ -10,6 +10,8 @@
   width: 3.75rem;
   height: 3.75rem;
   cursor: pointer;
+  background-image: url("/탑버튼.svg");
+  background-size: cover;
 }
 .topBtn:hover {
   transform: scale(1.1);
