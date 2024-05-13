@@ -2,12 +2,14 @@
 import TitleAndPopcornHeader from "@/app/_component/TitleAndPopcornHeader/TitleAndPopcornHeader";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Layout({ children }) {
   const [username, setUsername] = useState("");
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  const router = useRouter();
   useEffect(() => {
     getName();
   }, []);
@@ -19,7 +21,10 @@ export default function Layout({ children }) {
       );
       if (shouldLogin) {
         window.location.href = KAKAO_AUTH_URL;
+      } else {
+        router.push("/");
       }
+
       return;
     }
     try {

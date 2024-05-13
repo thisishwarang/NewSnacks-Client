@@ -49,11 +49,11 @@ export default function DebateDetailContainer({ params }) {
           ...rest,
         },
       });
+      console.log(response.data);
     } catch (error) {
       console.log("팝콘토론 상세페이지 오류", error);
     }
   };
-  console.log(debateInfo);
   if (!debateInfo) {
     return <div>Loading...</div>;
   }

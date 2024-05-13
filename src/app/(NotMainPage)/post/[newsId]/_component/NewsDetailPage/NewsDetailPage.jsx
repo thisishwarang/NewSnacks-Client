@@ -4,6 +4,7 @@ import axios from "axios";
 import styles from "./NewsDetailPage.module.css";
 import CommentSection from "../CommentSection/CommentSection";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 
 const categoryMappings = {
   ART: "예술",
@@ -14,69 +15,47 @@ const categoryMappings = {
 };
 
 export default function NewsDetailPage({ params }) {
-  //isLiked가 계속 false로만 가져와지는 버그 있음. heartCount는 1로 증가함
-  //postman에서는 잘 되는것으로 보아 accessToken 문제일 가능성 높음. 이후 수정 필요
   const [newsInfo, setNewsInfo] = useState();
+  const param = useParams();
+  console.log(param);
+  let newsId = param.newsId;
 
   useEffect(() => {
-    getNewsArticle();
-  }, []);
+    getNewsArticle(newsId);
+  }, [param]);
 
-  const getNewsArticle = async () => {
+  const getNewsArticle = async (newsId) => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
+      }
+
       const response = await axios.get(
-        `https://dev.jaeyun.shop/v1/articles/${params.newsId}`
+        `https://dev.jaeyun.shop/v1/articles/${newsId}`,
+        {
+          headers: headers,
+        }
       );
       setNewsInfo(response.data.data);
-      console.log(response.data);
+      console.log(response);
     } catch (error) {
       console.log("아티클상세조회 에러", error);
     }
   };
 
-  // const handleLikeButton = async () => {
-  //   // let accessToken = localStorage.getItem("accessToken");
-  //   if (true) {
-  //     try {
-  //       let response;
-  //       if (!newsInfo.isLiked) {
-  //         response = await axios.post(
-  //           `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
-  //           null,
-  //           {
-  //             headers: {
-  //               "Content-Type": "application/json",
-  //               Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
-  //             },
-  //           }
-  //         );
-  //       } else {
-  //         response = await axios.delete(
-  //           `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
-  //           {
-  //             headers: {
-  //               "Content-Type": "application/json",
-  //               Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
-  //             },
-  //           }
-  //         );
-  //       }
-  //       if (response.status === 200) {
-  //         // 서버에서 좋아요 상태와 하트 카운트가 업데이트되었다고 가정합니다.
-  //         // 서버에서 새로운 데이터를 가져와서 클라이언트 상태를 업데이트합니다.
-  //         getNewsArticle();
-  //       }
-  //     } catch (error) {
-  //       console.log("좋아요 버튼 에러", error);
-  //     }
-  //   }
-  // };
-  const handleLikeBtnClick = async () => {
+  const handleLikeBtnClick = async (newsId) => {
     let accessToken = localStorage.getItem("accessToken");
+    console.log(params.newsId);
     if (accessToken) {
       try {
         const response = await axios.post(
-          `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+          `https://dev.jaeyun.shop/v1/articles/${newsId}/likes`,
+          null,
           {
             headers: {
               "Content-Type": "application/json",
@@ -84,7 +63,7 @@ export default function NewsDetailPage({ params }) {
             },
           }
         );
-        getNewsArticle();
+        getNewsArticle(newsId);
         console.log("좋아요버튼클릭 후", response.data.data);
       } catch (error) {
         console.log("좋아요버튼클릭 에러", error);
@@ -93,11 +72,11 @@ export default function NewsDetailPage({ params }) {
       alert("로그인 이후 이용하세요");
     }
   };
-  const handleDeleteLikeBtn = async () => {
+  const handleDeleteLikeBtn = async (newsId) => {
     let accessToken = localStorage.getItem("accessToken");
     try {
       const response = await axios.delete(
-        `https://dev.jaeyun.shop/v1/articles/${params.newsId}/likes`,
+        `https://dev.jaeyun.shop/v1/articles/${newsId}/likes`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -105,7 +84,7 @@ export default function NewsDetailPage({ params }) {
           },
         }
       );
-      getNewsArticle();
+      getNewsArticle(newsId);
       console.log("좋아요버튼취소클릭 후", response.data.data);
     } catch (error) {
       console.log("좋취 에러", error);
@@ -135,7 +114,7 @@ export default function NewsDetailPage({ params }) {
             {newsInfo.isLiked ? (
               <button
                 className={styles.likeButton}
-                onClick={handleDeleteLikeBtn}
+                onClick={() => handleDeleteLikeBtn(param.newsId)}
               >
                 <img
                   src="/뉴스상세페이지좋아요-after.svg"
@@ -145,7 +124,7 @@ export default function NewsDetailPage({ params }) {
             ) : (
               <button
                 className={styles.likeButton}
-                onClick={handleLikeBtnClick}
+                onClick={() => handleLikeBtnClick(param.newsId)}
               >
                 <img
                   src="/뉴스상세페이지좋아요-before.svg"

@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./MyDebates.module.css";
 import axios from "axios";
 import MyDebate from "./MyDebate/MyDebate";
-import Link from "next/link";
 
 export default function MyDebates() {
   const [myDebates, setMyDebates] = useState([]);

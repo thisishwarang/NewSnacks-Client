@@ -60,36 +60,11 @@ export default function LikedPosts() {
     <div className={styles.container}>
       <div className={styles.likeTitle}>내가 좋아요한 뉴스낵스</div>
       <div className={styles.postsSection}>
-        {/* <button
-          className=""
-          direction="left"
-          state={scrollPosition === 0 ? "disable" : "enable"}
-          onClick={handlePrevClick}
-        >
-          왼
-        </button> */}
         <div className={styles.carousel} ref={carouselRef}>
           {likedPosts.map((likedPost, i) => (
             <Post article={likedPost} key={i} />
           ))}
         </div>
-
-        {/* <button
-          className=""
-          direction="right"
-          state={
-            carouselRef.current
-              ? scrollPosition >=
-                carouselRef.current.scrollWidth -
-                  carouselRef.current.clientWidth
-                ? "disable"
-                : "enable"
-              : "disable"
-          }
-          onClick={handleNextClick}
-        >
-          오
-        </button> */}
       </div>
     </div>
   );

@@ -23,13 +23,17 @@ export default function CommentSection({ articleId }) {
   const getComments = async () => {
     let accessToken = localStorage.getItem("accessToken");
     try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
+      }
       const response = await axios.get(
         `https://dev.jaeyun.shop/v1/articles/${articleId}/comments?order=${sortOrder}`,
         {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
+          headers: headers,
         }
       );
       console.log("댓글조회", response);

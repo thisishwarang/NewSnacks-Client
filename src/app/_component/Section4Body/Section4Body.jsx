@@ -9,18 +9,21 @@ import Link from "next/link";
 
 export default function Section4Body() {
   const [thisWeekPopcornDebate, setThisWeekPopcornDebate] = useState([]);
-  //여기서 이번주 팝콘토론 api GET함
-  //팝콘토론 id를 Button, Post로 넘겨줌
   useEffect(() => {
     const getThisWeekPopcornDebate = async () => {
+      let accessToken = localStorage.getItem("accessToken");
       try {
+        const headers = {
+          "Content-Type": "application/json",
+        };
+
+        if (accessToken) {
+          headers.Authorization = `Bearer ${accessToken}`;
+        }
         const response = await axios.get(
           "https://dev.jaeyun.shop/v1/debates/main",
           {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESSTOKEN}`,
-            },
+            headers: headers,
           }
         );
         console.log(response.data.data);

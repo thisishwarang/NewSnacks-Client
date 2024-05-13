@@ -17,22 +17,24 @@ export default function CommentContainer({ debateInfo, getDebateDetailPage }) {
 
   const getDebateComments = async () => {
     const accessToken = localStorage.getItem("accessToken");
-    if (accessToken) {
-      try {
-        const response = await axios.get(
-          `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/comments?order=${sortOrder}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
-        console.log("댓글조회", response.data.data);
-        setComments(response.data.data);
-      } catch (error) {
-        console.log(error);
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      if (accessToken) {
+        headers.Authorization = `Bearer ${accessToken}`;
       }
+      const response = await axios.get(
+        `https://dev.jaeyun.shop/v1/debates/${debateInfo.debateId}/comments?order=${sortOrder}`,
+        {
+          headers: headers,
+        }
+      );
+      console.log("댓글조회", response.data.data);
+      setComments(response.data.data);
+    } catch (error) {
+      console.log(error);
     }
   };
   useEffect(() => {
