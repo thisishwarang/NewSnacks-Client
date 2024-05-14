@@ -11,7 +11,7 @@ const categoryMappings = {
   TECHNOLOGY: "기술",
 };
 
- const Post = ({ article }) => {
+const Post = ({ article }) => {
   const router = useRouter();
   if (!article) {
     return <div>Loading...</div>;
@@ -29,6 +29,7 @@ const categoryMappings = {
           src={`https://${article.imageUrl}`}
           alt="articleImage"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       <div className={styles.titleSection}>{article.title}</div>
@@ -42,5 +43,5 @@ const categoryMappings = {
       </div>
     </div>
   );
-}
-export default Post
+};
+export default Post;

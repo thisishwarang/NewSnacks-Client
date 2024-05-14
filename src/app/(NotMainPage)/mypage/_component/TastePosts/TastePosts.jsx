@@ -12,9 +12,18 @@ const TastePosts = () => {
     getTastePosts();
   }, []);
   const getTastePosts = async () => {
+    let accessToken = localStorage.getItem("accessToken");
     try {
-      const response = await axios.get(`/data/myTastePosts.json`);
-      setTastePosts(response.data.data);
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/members/me/articles/interested`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      setTastePosts(response.data.data.slice(0, 9));
     } catch (error) {
       console.log("취향 에러");
     }

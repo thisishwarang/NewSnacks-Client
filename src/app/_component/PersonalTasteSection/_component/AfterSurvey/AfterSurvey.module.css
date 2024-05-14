@@ -4,7 +4,7 @@
   height: 100%;
 }
 .leftSection {
-  width: 40%;
+  width: 37%;
 }
 .leftBox {
   margin-top: 8rem;
@@ -41,25 +41,25 @@
   max-width: 25rem;
 }
 .rightSection {
-  width: 60%;
+  width: 63%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .rightBox {
-  width: 49.25rem;
+  width: 100%;
   height: 28rem;
   display: flex;
-  justify-content: space-between;
-  margin-right: 4rem;
+  justify-content: space-around;
+  margin: 0 1rem;
 }
-.rightBox > div {
+/* .rightBox > div {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.post {
+/* .post {
   width: 32%;
   height: 100%;
 }
@@ -78,4 +78,4 @@
   height: 21.75rem;
   margin-top: 0.875rem;
   margin-bottom: 1.43rem;
-}
+} */

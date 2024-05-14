@@ -17,7 +17,6 @@ const categoryMappings = {
 const NewsDetailPage = ({ params }) => {
   const [newsInfo, setNewsInfo] = useState();
   const param = useParams();
-  console.log(param);
   let newsId = param.newsId;
 
   useEffect(() => {
@@ -151,6 +150,7 @@ const NewsDetailPage = ({ params }) => {
               // width={800}
               // height={400}
               fill
+              sizes="(max-width: 430px) 50vw , (max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
             <div></div>

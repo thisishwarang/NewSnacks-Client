@@ -26,7 +26,8 @@
 }
 .carousel {
   display: flex;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
