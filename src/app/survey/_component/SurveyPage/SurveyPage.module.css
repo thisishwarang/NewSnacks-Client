@@ -51,14 +51,14 @@
   align-items: center;
   font-size: 2.5rem;
   font-weight: bold;
-  background-image: url("/팝콘버튼-호버전.png");
+  background-image: url("/public/assets/svg/취향저격-호버전.svg");
   background-repeat: no-repeat;
   background-size: cover;
   transition: background-image 0.3s ease;
   cursor: pointer;
 }
 .surveyBtns button:hover {
-  background-image: url("/팝콘버튼-호버후.png");
+  background-image: url("/public/assets/svg/취향저격-호버후.svg");
 }
 .endContainer {
   width: 100dvw;
