@@ -17,7 +17,6 @@
   width: 100%;
   margin-top: 4rem;
   border: 1px solid #4b4b4b;
-  background-color: #ffcc60;
 }
 .textareaBox {
   width: 80%;
@@ -56,6 +55,7 @@
   font-family: "NotoSans";
   font-size: 1.07rem;
   font-weight: 400;
+  background-color: #ffcc60;
 }
 
 .commentsBox {

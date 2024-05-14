@@ -11,6 +11,8 @@ import { useResetRecoilState } from "recoil";
 import Section4Body from "./Section4Body/Section4Body";
 import { categoryFilterState } from "./recoil/categoryFilterState";
 import PersonalTasteSection from "../_component/PersonalTasteSection/PersonalTasteSection";
+import Image from "next/image";
+import topBtn from "../../../public/assets/svg/탑버튼.svg";
 
 const Home = () => {
   const section1Ref = useRef(null);
@@ -43,7 +45,7 @@ const Home = () => {
     <>
       <MainPageNavbar targetRefs={targetRefs} />
       <button className={styles.topBtn} onClick={scrollToTop}>
-        {/* <img src="/탑버튼.svg" alt="탑버튼" /> */}
+        <Image src={topBtn} width={60} height={60} alt="탑버튼" />
       </button>
       <main className={styles.container}>
         <section
