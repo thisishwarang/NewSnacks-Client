@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex: 0 0 auto;
+  cursor: pointer;
 }
 .postText {
   font-size: 1.25rem;
