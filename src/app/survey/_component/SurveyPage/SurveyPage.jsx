@@ -3,12 +3,8 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import styles from "./SurveyPage.module.css";
 import axios from "axios";
-// import Link from "next/link";
-// import { useRecoilState } from "recoil";
-// import { surveyResultState } from "@/app/_component/recoil/surveyResultState";
 
 const SurveyPage = () => {
-  // 질문과 선택지 배열
   const questions = [
     {
       question:
@@ -85,7 +81,6 @@ const SurveyPage = () => {
     society: 0,
     trend: 0,
   });
-  // const [surveyResult, setSurveyResult] = useRecoilState(surveyResultState);
   const [surveyResult, setSurveyResult] = useState();
   const router = useRouter();
 
@@ -121,7 +116,6 @@ const SurveyPage = () => {
         categoryCounts[category] += 1;
       }
     });
-    // console.log(categoryCounts);
     return categoryCounts;
   };
 
