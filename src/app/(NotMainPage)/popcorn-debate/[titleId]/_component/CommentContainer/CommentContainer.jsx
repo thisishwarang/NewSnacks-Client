@@ -85,6 +85,8 @@ const CommentContainer = ({ debateInfo, getDebateDetailPage }) => {
         alert(
           "이미 댓글을 작성하셨습니다!\n투표 댓글은 한번만 등록 가능해요ㅠ"
         );
+      } else if (error.response.data.status === 404) {
+        alert("투표를 하셔야 댓글을 작성할 수 있습니다.");
       }
       console.log("댓글 등록 에러", error);
     }

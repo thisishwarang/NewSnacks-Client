@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./LikedPosts.module.css";
 import axios from "axios";
 import Post from "@/app/(NotMainPage)/_component/Post/Post";
+import Image from "next/image";
+
 
  const LikedPosts = () => {
   const [likedPosts, setLikedPosts] = useState([]);
@@ -61,9 +63,20 @@ import Post from "@/app/(NotMainPage)/_component/Post/Post";
       <div className={styles.likeTitle}>내가 좋아요한 뉴스낵스</div>
       <div className={styles.postsSection}>
         <div className={styles.carousel} ref={carouselRef}>
-          {likedPosts.map((likedPost, i) => (
+          {likedPosts.length !== 0 ? likedPosts.map((likedPost, i) => (
             <Post article={likedPost} key={i} />
-          ))}
+          )) : (
+            <div className={styles.noLikedPosts}>
+            작성한 댓글이 없어요
+            <Image
+              src={"/팝콘.png"}
+              alt="popcorn"
+              className={styles.popcorn}
+              width={81}
+              height={68}
+            />
+          </div>
+          )}
         </div>
       </div>
     </div>

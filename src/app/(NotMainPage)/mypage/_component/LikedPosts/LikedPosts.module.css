@@ -12,6 +12,7 @@
 }
 .postsSection {
   display: flex;
+  height: 100%;
   margin-top: 2rem;
   margin-left: 5rem;
   margin-right: 5rem;
@@ -24,3 +25,25 @@
   scrollbar-color: transparent transparent;
   gap: 2rem;
 }
+.noLikedPosts {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "NotoSans";
+  font-size: 1.2rem;
+}
+.popcorn {
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

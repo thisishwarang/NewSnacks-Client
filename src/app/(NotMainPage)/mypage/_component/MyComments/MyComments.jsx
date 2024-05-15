@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./MyComments.module.css";
 import axios from "axios";
 import MyComment from "./MyComment/MyComment";
+import Image from "next/image";
+
 
 const MyComments = () => {
   const [comments, setComments] = useState([]);
@@ -42,9 +44,18 @@ const MyComments = () => {
       <header className={styles.commentsTitle}>내가 작성한 댓글</header>
       <div className={styles.commentsSection}>
         <div className={styles.carousel} ref={carouselRef}>
-          {comments.map((comment, i) => (
+          {comments.length !== 0 ? comments.map((comment, i) => (
             <MyComment comment={comment} key={i} />
-          ))}
+          )) : (<div className={styles.noComments}>
+            작성한 댓글이 없어요
+            <Image
+              src={"/팝콘.png"}
+              alt="popcorn"
+              className={styles.popcorn}
+              width={81}
+              height={68}
+            />
+          </div>)}
         </div>
       </div>
     </div>
