@@ -8,7 +8,7 @@
   align-items: center;
 }
 .sortButtons button {
-  font-size: 1rem;
+  font-size: 1.06rem;
 }
 .sortButtons button:hover {
   font-weight: bold;
@@ -26,9 +26,14 @@
   border-bottom: 1px solid black;
 }
 .searchInput {
+  width: 100%;
+  font-size: 1.06rem;
   border: none;
   outline: none;
   background-color: transparent;
+}
+.searchInput::placeholder {
+  font-size: 1.06rem;
 }
 .searchButton {
   cursor: pointer;

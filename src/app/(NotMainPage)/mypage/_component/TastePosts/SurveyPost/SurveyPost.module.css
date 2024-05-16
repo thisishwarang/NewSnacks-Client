@@ -11,6 +11,7 @@
 .postText {
   font-size: 1.25rem;
   font-weight: 500;
+  line-height: 1.6rem;
   max-width: 90%;
   text-overflow: ellipsis;
   overflow: hidden;

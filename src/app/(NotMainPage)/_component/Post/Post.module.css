@@ -42,6 +42,7 @@
   font-weight: 500;
   line-height: 1.56rem;
   letter-spacing: -5;
+  word-break: keep-all;
 }
 .informationSection {
   margin-bottom: 1rem;
