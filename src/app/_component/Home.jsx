@@ -54,7 +54,7 @@ const Home = () => {
         >
           <div className={styles.section1Wrapper}>
             <video autoPlay loop muted>
-              <source src="/MainVideo.mp4" type="video/mp4" />
+              <source src="/MainVideo2.mp4" type="video/mp4" />
             </video>
           </div>
         </section>
