@@ -13,7 +13,7 @@ const CommentContainer = ({ debateInfo, getDebateDetailPage }) => {
   const [textareaCount, setTextareaCount] = useState(0);
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}&prompt=login`;
 
   const getDebateComments = async () => {
     const accessToken = localStorage.getItem("accessToken");
@@ -169,7 +169,12 @@ const CommentContainer = ({ debateInfo, getDebateDetailPage }) => {
         <div className={styles.commentsBox}>
           <ul>
             {comments.map((comment, i) => (
-              <li key={i} className={styles.commentLi}>
+              <li
+                key={i}
+                className={`${styles.commentLi} ${
+                  comment.vote ? styles.support : styles.oppose
+                }`}
+              >
                 <div className={styles.userInfo}>
                   <img src={"/댓글프로필.svg"} alt="profileimg" />
                   <span className={styles.nickname}>{comment.writerName}</span>

@@ -17,7 +17,7 @@ const MainPageNavbar = ({ targetRefs }) => {
   const [visible, setVisible] = useState(true); // 내비게이션 바 표시 여부 상태
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}&prompt=login`;
   const [isLogined, setIsLogined] = useState(false);
   const router = useRouter();
   useEffect(() => {

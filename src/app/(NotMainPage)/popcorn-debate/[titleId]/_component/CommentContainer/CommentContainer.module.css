@@ -61,15 +61,19 @@
 }
 .commentsBox {
   width: 100%;
+  margin-top: 1rem;
 }
 .commentLi {
   width: 100%;
-  border-bottom: 1px solid #4b4b4b;
+  padding: 1.5rem 0;
+  /* padding-top: 0.9rem; */
+  border-radius: 5px;
+  /* border-bottom: 1px solid #4b4b4b; */
 }
 .userInfo {
   display: flex;
   align-items: center;
-  margin-top: 1.875rem;
+  /* margin-top: 1.875rem; */
   margin-left: 1rem;
 }
 .userInfo img {
@@ -117,6 +121,15 @@
   margin-left: 4rem;
   margin-bottom: 1.25rem;
   overflow-wrap: break-word;
+  line-height: 1.8rem;
+}
+.support {
+  background-color: #ffcc60;
+  color: #000;
+}
+.oppose {
+  background-color: #4b4b4b;
+  color: #fff;
 }
 .commentLikeBtnDiv {
   display: flex;

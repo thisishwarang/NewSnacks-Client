@@ -5,7 +5,7 @@ import styles from "./BeforeSurvey.module.css";
 const BeforeSurvey = () => {
   const client_id = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirect_uri = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`;
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}&prompt=login`;
   const router = useRouter();
 
   const handleGoClick = () => {
